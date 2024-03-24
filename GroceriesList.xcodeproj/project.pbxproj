@@ -71,14 +71,9 @@
 			isa = PBXGroup;
 			children = (
 				A82DE0EA2BA9D1160000DAA4 /* Resources */,
-				A82DE0E92BA9D10F0000DAA4 /* MainController */,
-				A82DE0EB2BA9D1470000DAA4 /* ContainerController */,
-				A82DE0EC2BA9D15F0000DAA4 /* NavigationBar */,
+				A8E5680F2BADCFA30018D78C /* Controllers */,
+				A8E5680E2BADCF740018D78C /* Views */,
 				A82DE0F12BA9D1D50000DAA4 /* Models */,
-				A82DE0DE2BA9D0770000DAA4 /* Assets.xcassets */,
-				A82DE0E02BA9D0770000DAA4 /* LaunchScreen.storyboard */,
-				A82DE0E32BA9D0770000DAA4 /* Info.plist */,
-				A82DE0DB2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld */,
 			);
 			path = GroceriesList;
 			sourceTree = "<group>";
@@ -88,7 +83,6 @@
 			children = (
 				A82DE0ED2BA9D18E0000DAA4 /* MainViewController.swift */,
 				A82DE0EF2BA9D1A50000DAA4 /* MainViewController.xib */,
-				A82DE0FA2BA9D57B0000DAA4 /* ItemCell */,
 			);
 			path = MainController;
 			sourceTree = "<group>";
@@ -98,6 +92,9 @@
 			children = (
 				A82DE0D22BA9D0750000DAA4 /* AppDelegate.swift */,
 				A82DE0D42BA9D0750000DAA4 /* SceneDelegate.swift */,
+				A82DE0DE2BA9D0770000DAA4 /* Assets.xcassets */,
+				A82DE0E02BA9D0770000DAA4 /* LaunchScreen.storyboard */,
+				A82DE0E32BA9D0770000DAA4 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -123,6 +120,7 @@
 			children = (
 				A82DE0F22BA9D1F20000DAA4 /* MainModel.swift */,
 				A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */,
+				A82DE0DB2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +132,32 @@
 				A82DE0FC2BA9D5B50000DAA4 /* MainItemCVCell.xib */,
 			);
 			path = ItemCell;
+			sourceTree = "<group>";
+		};
+		A8E5680E2BADCF740018D78C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8E568102BADCFB80018D78C /* Cells */,
+				A82DE0EC2BA9D15F0000DAA4 /* NavigationBar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A8E5680F2BADCFA30018D78C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A82DE0E92BA9D10F0000DAA4 /* MainController */,
+				A82DE0EB2BA9D1470000DAA4 /* ContainerController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A8E568102BADCFB80018D78C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A82DE0FA2BA9D57B0000DAA4 /* ItemCell */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
