@@ -17,6 +17,8 @@
 		A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */; };
 		A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */; };
 		A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */; };
+		A8AC05082BB3005C0068C377 /* ExpiringProductsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */; };
+		A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AC05072BB3005C0068C377 /* ExpiringProductsTVCell.xib */; };
 		A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538F72BB0A12E00A3E8DA /* Extensions.swift */; };
 		A8B538FA2BB0A28C00A3E8DA /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538F92BB0A28C00A3E8DA /* NavigationBar.swift */; };
 		A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */; };
@@ -36,6 +38,8 @@
 		A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
+		A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringProductsTVCell.swift; sourceTree = "<group>"; };
+		A8AC05072BB3005C0068C377 /* ExpiringProductsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiringProductsTVCell.xib; sourceTree = "<group>"; };
 		A8B538F72BB0A12E00A3E8DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A8B538F92BB0A28C00A3E8DA /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTVCell.swift; sourceTree = "<group>"; };
@@ -136,6 +140,15 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		A8AC05052BB3003B0068C377 /* ExpiringCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */,
+				A8AC05072BB3005C0068C377 /* ExpiringProductsTVCell.xib */,
+			);
+			path = ExpiringCell;
+			sourceTree = "<group>";
+		};
 		A8B538FB2BB0B6D100A3E8DA /* ContainerCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +179,7 @@
 		A8E568102BADCFB80018D78C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A8AC05052BB3003B0068C377 /* ExpiringCell */,
 				A8B538FB2BB0B6D100A3E8DA /* ContainerCell */,
 			);
 			path = Cells;
@@ -230,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82DE0E22BA9D0770000DAA4 /* LaunchScreen.storyboard in Resources */,
+				A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */,
 				A82DE0F02BA9D1A50000DAA4 /* MainViewController.xib in Resources */,
 				A8B538FF2BB0B72800A3E8DA /* ContainerTVCell.xib in Resources */,
 				A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */,
@@ -253,6 +268,7 @@
 				A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */,
 				A82DE0F32BA9D1F20000DAA4 /* MainModel.swift in Sources */,
 				A82DE0EE2BA9D18E0000DAA4 /* MainViewController.swift in Sources */,
+				A8AC05082BB3005C0068C377 /* ExpiringProductsTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

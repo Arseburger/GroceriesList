@@ -27,6 +27,9 @@ private extension MainViewController {
     
     func configureTableView() {
         tableView.register(UINib(nibName: "ContainerTVCell", bundle: .main), forCellReuseIdentifier: "containerTVCell")
+        
+        tableView.register(UINib(nibName: "ExpiringProductsTVCell", bundle: .main), forCellReuseIdentifier: "expiredTVCell")
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = false
@@ -46,21 +49,31 @@ private extension MainViewController {
 
 extension MainViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        indexPath.row > 0 ? 120 : 92
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "containerTVCell",
-            for: indexPath
-        ) as? ContainerTVCell else {
-            return UITableViewCell()
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "expiredTVCell",
+                for: indexPath
+            ) as? ExpiringProductsTVCell else {
+                return UITableViewCell()
+            }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "containerTVCell",
+                for: indexPath
+            ) as? ContainerTVCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: Storage.defaultContainer)
+            return cell
         }
-        cell.configure(with: Storage.defaultContainer)
-        return cell
     }
 }

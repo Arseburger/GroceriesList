@@ -14,7 +14,6 @@ class ContainerTVCell: UITableViewCell {
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
     
-    
     static var identifier: String {
         String.init(describing: self)
     }
