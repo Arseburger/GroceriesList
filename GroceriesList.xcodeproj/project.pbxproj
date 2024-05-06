@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82B83982BB6C29F00D092F1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B83972BB6C29F00D092F1 /* Router.swift */; };
 		A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0D22BA9D0750000DAA4 /* AppDelegate.swift */; };
 		A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0DB2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld */; };
 		A82DE0DF2BA9D0770000DAA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82DE0DE2BA9D0770000DAA4 /* Assets.xcassets */; };
@@ -20,12 +21,12 @@
 		A8AC05082BB3005C0068C377 /* ExpiringProductsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */; };
 		A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AC05072BB3005C0068C377 /* ExpiringProductsTVCell.xib */; };
 		A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538F72BB0A12E00A3E8DA /* Extensions.swift */; };
-		A8B538FA2BB0A28C00A3E8DA /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538F92BB0A28C00A3E8DA /* NavigationBar.swift */; };
 		A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */; };
 		A8B538FF2BB0B72800A3E8DA /* ContainerTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A82B83972BB6C29F00D092F1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A82DE0CF2BA9D0750000DAA4 /* GroceriesList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceriesList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82DE0D22BA9D0750000DAA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82DE0DC2BA9D0750000DAA4 /* GroceriesList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroceriesList.xcdatamodel; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringProductsTVCell.swift; sourceTree = "<group>"; };
 		A8AC05072BB3005C0068C377 /* ExpiringProductsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiringProductsTVCell.xib; sourceTree = "<group>"; };
 		A8B538F72BB0A12E00A3E8DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		A8B538F92BB0A28C00A3E8DA /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTVCell.swift; sourceTree = "<group>"; };
 		A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerTVCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,20 +112,13 @@
 			path = ContainerController;
 			sourceTree = "<group>";
 		};
-		A82DE0EC2BA9D15F0000DAA4 /* NavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				A8B538F92BB0A28C00A3E8DA /* NavigationBar.swift */,
-			);
-			path = NavigationBar;
-			sourceTree = "<group>";
-		};
 		A82DE0F12BA9D1D50000DAA4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A82DE0F22BA9D1F20000DAA4 /* MainModel.swift */,
 				A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */,
 				A82DE0DB2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld */,
+				A82B83972BB6C29F00D092F1 /* Router.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				A8E568102BADCFB80018D78C /* Cells */,
-				A82DE0EC2BA9D15F0000DAA4 /* NavigationBar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,10 +253,10 @@
 			files = (
 				A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */,
 				A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */,
+				A82B83982BB6C29F00D092F1 /* Router.swift in Sources */,
 				A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */,
 				A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */,
 				A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */,
-				A8B538FA2BB0A28C00A3E8DA /* NavigationBar.swift in Sources */,
 				A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */,
 				A82DE0F32BA9D1F20000DAA4 /* MainModel.swift in Sources */,
 				A82DE0EE2BA9D18E0000DAA4 /* MainViewController.swift in Sources */,

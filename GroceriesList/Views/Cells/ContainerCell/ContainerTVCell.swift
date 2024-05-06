@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContainerTVCell: UITableViewCell {
+final class ContainerTVCell: UITableViewCell {
     
     @IBOutlet weak var imageLogo: UIImageView!
     @IBOutlet weak var topLabel: UILabel!
@@ -20,6 +20,7 @@ class ContainerTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         arrowImage.layer.cornerRadius = arrowImage.frame.height * 0.5
         arrowImage.tintColor = UIColor.mainColor
         arrowImage.window?.layer.cornerRadius = 20

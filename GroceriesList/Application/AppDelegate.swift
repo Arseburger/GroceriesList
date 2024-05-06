@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let vc = UINavigationController(rootViewController: MainViewController())
+        vc.setupNavigationBar()
         window?.rootViewController = vc
         
         return true

@@ -11,8 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="GroceriesList" customModuleProvider="target">
             <connections>
                 <outlet property="addContainerButton" destination="FXi-ul-IEV" id="vxO-DN-h9d"/>
-                <outlet property="navigationBar" destination="3bT-K2-uW3" id="q05-Wn-E1g"/>
                 <outlet property="tableView" destination="Pz3-eW-wNF" id="czJ-SJ-YIK"/>
+                <outlet property="topView" destination="3bT-K2-uW3" id="q05-Wn-E1g"/>
                 <outlet property="view" destination="u75-dQ-5wF" id="3lh-98-tGP"/>
             </connections>
         </placeholder>
@@ -22,14 +22,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bT-K2-uW3" userLabel="NavigationBar">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
                     <color key="backgroundColor" red="0.35783565044403076" green="0.53934377431869507" blue="0.66034197807312012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="9m2-t7-WLj"/>
+                        <constraint firstAttribute="height" constant="47" id="9m2-t7-WLj"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pz3-eW-wNF">
-                    <rect key="frame" x="0.0" y="88" width="414" height="706"/>
+                    <rect key="frame" x="0.0" y="51" width="414" height="743"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXi-ul-IEV">
@@ -47,7 +47,7 @@
             <constraints>
                 <constraint firstItem="FXi-ul-IEV" firstAttribute="bottom" secondItem="BHS-JK-wFy" secondAttribute="bottom" id="7z5-v0-eZq"/>
                 <constraint firstItem="FXi-ul-IEV" firstAttribute="top" secondItem="Pz3-eW-wNF" secondAttribute="bottom" constant="8" id="NsW-Pr-KhA"/>
-                <constraint firstItem="Pz3-eW-wNF" firstAttribute="top" secondItem="3bT-K2-uW3" secondAttribute="bottom" constant="8" id="Rpk-wP-crB"/>
+                <constraint firstItem="Pz3-eW-wNF" firstAttribute="top" secondItem="3bT-K2-uW3" secondAttribute="bottom" constant="4" id="Rpk-wP-crB"/>
                 <constraint firstItem="3bT-K2-uW3" firstAttribute="trailing" secondItem="BHS-JK-wFy" secondAttribute="trailing" id="T2k-jw-Aa4"/>
                 <constraint firstItem="Pz3-eW-wNF" firstAttribute="leading" secondItem="BHS-JK-wFy" secondAttribute="leading" id="Umw-a7-f8r"/>
                 <constraint firstItem="Pz3-eW-wNF" firstAttribute="trailing" secondItem="BHS-JK-wFy" secondAttribute="trailing" id="gEI-vk-fFJ"/>

@@ -8,10 +8,28 @@
 import Foundation
 import UIKit
 
-final class ContainerList {
+class MainModel {
+    var containers: [ContainerList] = [.defaultItem]
+    var hasExpiringProducts: Bool {
+        var result = false
+        containers.forEach { container in
+            result += !container.hasExpiringProducts
+        }
+        return result
+    }
+}
+
+struct ContainerList {
     
-    static var defaultItem = ContainerList(items: [.defaultContainer])
+    static var defaultItem = ContainerList(items: Array.init(repeating: .defaultContainer, count: 5))
     var items: [Storage] = []
+    var hasExpiringProducts: Bool {
+        var hasExpProds = false
+        items.forEach { container in
+            hasExpProds += !container.expiredProducts.isEmpty
+        }
+        return hasExpProds
+    }
     
     init(items: [Storage]) {
         self.items = items
@@ -19,11 +37,21 @@ final class ContainerList {
 }
 
 struct Storage {
-    static var defaultContainer: Storage = .init(name: "Холодильник", image: UIImage(named: "fridge"), expiredProducts: [.defaultProduct])
+    static var defaultContainer: Storage = .init(
+        name: "Холодильник",
+        image: UIImage(named: "fridge"),
+        expiredProducts: [.defaultProduct]
+    )
     
     var name: String
     var image: UIImage?
     var expiredProducts: [Product]
+    
+    init(name: String, image: UIImage?, expiredProducts: [Product]) {
+        self.name = name
+        self.image = image
+        self.expiredProducts = expiredProducts
+    }
 }
 
 struct Product {
@@ -38,4 +66,11 @@ struct Product {
     var expDate: DateComponents?
     var quantity: Double
     var image: UIImage?
+    
+    init(name: String, expDate: DateComponents?, quantity: Double, image: UIImage?) {
+        self.name = name
+        self.expDate = expDate
+        self.quantity = quantity
+        self.image = image
+    }
 }

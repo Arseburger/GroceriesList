@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpiringProductsTVCell: UITableViewCell {
+final class ExpiringProductsTVCell: UITableViewCell {
 
     @IBOutlet private weak var rightArrow: UIImageView!
     @IBOutlet private weak var productsCountLabel: UILabel!
@@ -17,7 +17,7 @@ class ExpiringProductsTVCell: UITableViewCell {
         String.init(describing: self)
     }
     
-    private var expiredProductsCounter: Int = 6
+    private var expiredProductsCounter: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,10 +30,7 @@ class ExpiringProductsTVCell: UITableViewCell {
         productsCountLabel.layer.backgroundColor = UIColor.white.cgColor
         infoLabel.textColor = .red
         infoLabel.text = "Продукты, которые испортятся в течение 3-х дней!"
-        
-    }
-    
-    func setup() {
+        selectionStyle = .none
     }
     
 }
