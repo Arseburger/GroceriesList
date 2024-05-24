@@ -38,7 +38,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfq-fO-kv2">
                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="ESB-BP-jAN"/>
+                                            <constraint firstAttribute="height" priority="750" constant="24" id="ESB-BP-jAN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -49,7 +49,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="NLQ-Gd-lMT"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -72,6 +72,7 @@
                             <constraint firstItem="db1-LP-66Z" firstAttribute="centerY" secondItem="Cco-jY-0gt" secondAttribute="centerY" id="Ybw-Dq-Zbn"/>
                             <constraint firstItem="hl0-OM-8IS" firstAttribute="centerY" secondItem="Cco-jY-0gt" secondAttribute="centerY" id="ZR3-zs-dt6"/>
                             <constraint firstItem="BtH-Xs-Wwn" firstAttribute="centerY" secondItem="Cco-jY-0gt" secondAttribute="centerY" id="cY4-Uj-flf"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hl0-OM-8IS" secondAttribute="bottom" constant="16" id="kva-CP-yKL"/>
                             <constraint firstItem="BtH-Xs-Wwn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hl0-OM-8IS" secondAttribute="trailing" constant="16" id="mxj-k8-Shh"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="db1-LP-66Z" secondAttribute="bottom" constant="20" id="x8D-Xl-rZT"/>
                         </constraints>

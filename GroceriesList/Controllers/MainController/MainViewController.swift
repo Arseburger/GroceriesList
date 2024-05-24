@@ -19,7 +19,6 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
         super.viewDidLoad()
         setupAppearence()
         configureTableView()
-//        addNavigationBarAddButton()
     }
     
     
@@ -80,11 +79,11 @@ private extension MainViewController {
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        containers.items.count + 1
+        containers.items.count + (containers.hasExpiringProducts ? 1 : 0)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row > 0 ? 120 : 92
+        120//(indexPath.row > 0 && containers.hasExpiringProducts) ? 120 : 92
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

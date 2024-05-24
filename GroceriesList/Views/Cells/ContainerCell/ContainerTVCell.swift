@@ -38,7 +38,7 @@ final class ContainerTVCell: UITableViewCell {
             : "Продуктов с истекающим сроком годности: \(item.expiredProducts.count)"
         
         bottomLabel.textColor = item.expiredProducts.isEmpty
-            ? .lightText
+            ? .black
             : .red
         
     }
