@@ -22,6 +22,10 @@
 		A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538F72BB0A12E00A3E8DA /* Extensions.swift */; };
 		A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */; };
 		A8B538FF2BB0B72800A3E8DA /* ContainerTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */; };
+		A8F899C22C00CD8500EAA771 /* DetailItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F899C02C00CD8500EAA771 /* DetailItemCollectionViewCell.swift */; };
+		A8F899C32C00CD8500EAA771 /* DetailItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F899C12C00CD8500EAA771 /* DetailItemCollectionViewCell.xib */; };
+		A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F899C52C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift */; };
+		A8F899C82C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F899C62C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		A8B538F72BB0A12E00A3E8DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTVCell.swift; sourceTree = "<group>"; };
 		A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerTVCell.xib; sourceTree = "<group>"; };
+		A8F899C02C00CD8500EAA771 /* DetailItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8F899C12C00CD8500EAA771 /* DetailItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		A8F899C52C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8F899C62C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewItemCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +176,46 @@
 		A8E568102BADCFB80018D78C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A8F899BE2C00CD1B00EAA771 /* CollectionView */,
+				A8F899BD2C00CD1400EAA771 /* TableView */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A8F899BD2C00CD1400EAA771 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
 				A8AC05052BB3003B0068C377 /* ExpiringCell */,
 				A8B538FB2BB0B6D100A3E8DA /* ContainerCell */,
 			);
-			path = Cells;
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		A8F899BE2C00CD1B00EAA771 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				A8F899C42C00DD0C00EAA771 /* AddNewItemCVCell */,
+				A8F899BF2C00CD2600EAA771 /* DetailItemCVCell */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		A8F899BF2C00CD2600EAA771 /* DetailItemCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8F899C02C00CD8500EAA771 /* DetailItemCollectionViewCell.swift */,
+				A8F899C12C00CD8500EAA771 /* DetailItemCollectionViewCell.xib */,
+			);
+			path = DetailItemCVCell;
+			sourceTree = "<group>";
+		};
+		A8F899C42C00DD0C00EAA771 /* AddNewItemCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8F899C52C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift */,
+				A8F899C62C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib */,
+			);
+			path = AddNewItemCVCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,8 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82DE0E22BA9D0770000DAA4 /* LaunchScreen.storyboard in Resources */,
+				A8F899C32C00CD8500EAA771 /* DetailItemCollectionViewCell.xib in Resources */,
 				A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */,
 				A82DE0F02BA9D1A50000DAA4 /* MainViewController.xib in Resources */,
+				A8F899C82C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib in Resources */,
 				A8B538FF2BB0B72800A3E8DA /* ContainerTVCell.xib in Resources */,
 				A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */,
 				A82DE0DF2BA9D0770000DAA4 /* Assets.xcassets in Resources */,
@@ -250,6 +296,8 @@
 			files = (
 				A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */,
 				A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */,
+				A8F899C22C00CD8500EAA771 /* DetailItemCollectionViewCell.swift in Sources */,
+				A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */,
 				A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */,
 				A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */,
 				A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */,

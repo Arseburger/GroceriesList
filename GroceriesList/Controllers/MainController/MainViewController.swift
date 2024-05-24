@@ -67,7 +67,7 @@ private extension MainViewController {
         setupNavBar()
     }
     
-    private func setupNavBar() {
+    func setupNavBar() {
         navigationController?.navigationBar.backgroundColor = .mainColor
         navigationController?.navigationBar.tintColor = .white
         navigationItem.title = "Список контейнеров"
@@ -79,23 +79,35 @@ private extension MainViewController {
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        containers.items.count + (containers.hasExpiringProducts ? 1 : 0)
+        containers.containers.count + (containers.hasExpiringProducts ? 1 : 0)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120//(indexPath.row > 0 && containers.hasExpiringProducts) ? 120 : 92
+        120
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 && containers.hasExpiringProducts {
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: "expiredTVCell",
-                for: indexPath
-            ) as? ExpiringProductsTVCell else {
-                return UITableViewCell()
+        if containers.hasExpiringProducts {
+            switch indexPath.row {
+                case 0:
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: "expiredTVCell",
+                        for: indexPath
+                    ) as? ExpiringProductsTVCell else {
+                        return UITableViewCell()
+                    }
+                    return cell
+                default:
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: "containerTVCell",
+                        for: indexPath
+                    ) as? ContainerTVCell else {
+                        return UITableViewCell()
+                    }
+                    cell.configure(with: containers.containers[indexPath.row - 1])
+                    return cell
             }
-            return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "containerTVCell",
@@ -103,7 +115,7 @@ extension MainViewController {
             ) as? ContainerTVCell else {
                 return UITableViewCell()
             }
-            cell.configure(with: Storage.defaultContainer)
+            cell.configure(with: containers.containers[indexPath.row])
             return cell
         }
     }
@@ -134,7 +146,7 @@ extension MainViewController {
         vc.viewDidLayoutSubviews()
         
         if index >= 0 {
-            let item = containers.items[index]
+            let item = containers.containers[index]
             textLabel.text = item.name
         } else {
             textLabel.text = "Пиздец"

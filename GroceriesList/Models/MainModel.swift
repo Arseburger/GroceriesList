@@ -22,17 +22,18 @@ class MainModel {
 struct ContainerList {
     
     static var defaultItem = ContainerList(items: Array.init(repeating: .defaultContainer, count: 5))
-    var items: [Storage] = []
+    
+    var containers: [Storage] = []
     var hasExpiringProducts: Bool {
         var hasExpProds = false
-        items.forEach { container in
+        containers.forEach { container in
             hasExpProds += !container.expiredProducts.isEmpty
         }
         return hasExpProds
     }
     
     init(items: [Storage]) {
-        self.items = items
+        self.containers = items
     }
 }
 
@@ -40,37 +41,55 @@ struct Storage {
     static var defaultContainer: Storage = .init(
         name: "Холодильник",
         image: UIImage(named: "fridge"),
-        expiredProducts: [.defaultProduct]
+        products: [.defaultProduct]
     )
     
     var name: String
     var image: UIImage?
-    var expiredProducts: [Product]
+    var products: [Product]
+    var expiredProducts: [Product] {
+        var result: [Product] = []
+        products.forEach { product in
+            if let date = product.expDate {
+                if date.distance(to: Date.now) > 0 {
+                    result.append(product)
+                }
+            }
+        }
+        return result
+    }
     
-    init(name: String, image: UIImage?, expiredProducts: [Product]) {
+    init(name: String, image: UIImage?, products: [Product]) {
         self.name = name
         self.image = image
-        self.expiredProducts = expiredProducts
+        self.products = products
     }
 }
 
 struct Product {
     static var defaultProduct: Product = .init(
         name: "Огурцы",
-        expDate: DateComponents.init(year: 2024, month: 3, day: 29),
+        expDate: "24/5/2024",
         quantity: 3,
-        image: UIImage.init(named: "circle.grid.cross")
+        image: UIImage.init(named: "circle.grid.cross"),
+        measureUnit: ("штук", "шт")
     )
     
     var name: String
-    var expDate: DateComponents?
+    var expDate: Date?
     var quantity: Double
     var image: UIImage?
+    var measureUnit: (full: String?, short: String?)
     
-    init(name: String, expDate: DateComponents?, quantity: Double, image: UIImage?) {
+    init(name: String, expDate: String?, quantity: Double, image: UIImage?, measureUnit: (String?, String?)) {
         self.name = name
-        self.expDate = expDate
         self.quantity = quantity
         self.image = image
+        self.measureUnit = measureUnit
+        if let date = expDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            self.expDate = dateFormatter.date(from: date)
+        }
     }
 }
