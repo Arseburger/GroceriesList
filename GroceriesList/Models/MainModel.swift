@@ -5,19 +5,7 @@
 //  Created by Александр Королёв on 19.03.2024.
 //
 
-import Foundation
 import UIKit
-
-class MainModel {
-    var containers: [ContainerList] = [.defaultItem]
-    var hasExpiringProducts: Bool {
-        var result = false
-        containers.forEach { container in
-            result += !container.hasExpiringProducts
-        }
-        return result
-    }
-}
 
 struct ContainerList {
     
@@ -41,7 +29,7 @@ struct Storage {
     static var defaultContainer: Storage = .init(
         name: "Холодильник",
         image: UIImage(named: "fridge"),
-        products: [.defaultProduct]
+        products: [.defaultProduct, .defaultProduct]
     )
     
     var name: String
@@ -71,7 +59,7 @@ struct Product {
         name: "Огурцы",
         expDate: "24/5/2024",
         quantity: 3,
-        image: UIImage.init(named: "circle.grid.cross"),
+        image: UIImage.init(systemName: "circle.grid.cross"),
         measureUnit: ("штук", "шт")
     )
     
@@ -88,6 +76,7 @@ struct Product {
         self.measureUnit = measureUnit
         if let date = expDate {
             let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = .init(abbreviation: "MSK")
             dateFormatter.dateFormat = "dd/MM/yyyy"
             self.expDate = dateFormatter.date(from: date)
         }

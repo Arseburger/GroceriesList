@@ -10,14 +10,15 @@ import UIKit
 class DetailItemCollectionViewCell: UICollectionViewCell {
     
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
-    
-    static var identifier: String = String.init(describing: self)
+    @IBOutlet private weak var bottomView: UIView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var infoLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        bottomView.layer.cornerRadius = bottomView.frame.width * 0.1
+        
     }
     
     func configure(with item: Product) {
@@ -25,7 +26,7 @@ class DetailItemCollectionViewCell: UICollectionViewCell {
             imageView.image = image
         }
         nameLabel.text = item.name
-        infoLabel.text = "\(item.quantity)"
+        infoLabel.text = "\(Int(item.quantity)) \(item.measureUnit.short!)"
     }
     
 }

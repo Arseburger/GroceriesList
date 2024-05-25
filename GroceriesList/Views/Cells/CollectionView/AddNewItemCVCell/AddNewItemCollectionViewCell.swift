@@ -9,12 +9,14 @@ import UIKit
 
 class AddNewItemCollectionViewCell: UICollectionViewCell {
     
-    static var identifier: String = String.init(describing: self)
+    @IBOutlet private weak var bottomView: UIView!
     
-    var didPressAddButton: (() -> [Product])?
+    var didPressAddButton: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        bottomView.layer.cornerRadius = bottomView.frame.width * 0.1
     }
 
 }

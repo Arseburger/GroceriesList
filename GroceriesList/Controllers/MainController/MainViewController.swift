@@ -13,7 +13,11 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
     @IBOutlet private weak var addContainerButton: UIButton!
     @IBOutlet private weak var topView: UIView!
     
-    private var containers: ContainerList = .defaultItem
+    private var containers: ContainerList = .defaultItem {
+        didSet {
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +25,18 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
         configureTableView()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        topView.backgroundColor = .mainColor
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        addNavigationBarAddButton()
     }
     
 }
@@ -63,7 +74,7 @@ private extension MainViewController {
         addContainerButton.setTitle("Изменить остатки", for: .normal)
         addContainerButton.setTitleColor(.white, for: .normal)
         addContainerButton.layer.cornerRadius = 12
-        topView.backgroundColor = .mainColor
+        
         setupNavBar()
     }
     
@@ -71,6 +82,7 @@ private extension MainViewController {
         navigationController?.navigationBar.backgroundColor = .mainColor
         navigationController?.navigationBar.tintColor = .white
         navigationItem.title = "Список контейнеров"
+        navigationItem.backButtonTitle = "Назад"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
@@ -97,6 +109,11 @@ extension MainViewController {
                     ) as? ExpiringProductsTVCell else {
                         return UITableViewCell()
                     }
+                    var number: Int = 0
+                    containers.containers.forEach({ item in
+                        number += item.expiredProducts.count
+                    })
+                    cell.getRotts(number)
                     return cell
                 default:
                     guard let cell = tableView.dequeueReusableCell(
@@ -122,37 +139,21 @@ extension MainViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row - (containers.hasExpiringProducts ? 1 : 0)
-        
-        
-        let vc = UIViewController()
-        
-        let frame = vc.view.frame
-        
-        let textLabel = UILabel(frame: CGRect(
-            origin: CGPoint(
-                x: vc.view.frame.midX - 100,
-                y: vc.view.frame.midY - 10
-            ),
-            size: CGSize(width: 200, height: 20)))
-        textLabel.textAlignment = .center
-        
-        let topView = UIView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 47))
-        topView.backgroundColor = .mainColor
-        
-        vc.view.backgroundColor = .white
-        [topView, textLabel].forEach {
-            vc.view.addSubview($0)
+        switch indexPath.row {
+            case 0:
+                if !containers.hasExpiringProducts {
+                    let detailVC = ContainerViewController()
+                    detailVC.container = containers.containers[index]
+                    navigationController?.pushViewController(detailVC, animated: true)
+                } else {
+                    let vc = UIViewController()
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+            default:
+                let detailVC = ContainerViewController()
+                detailVC.container = containers.containers[index]
+                navigationController?.pushViewController(detailVC, animated: true)
         }
-        vc.viewDidLayoutSubviews()
-        
-        if index >= 0 {
-            let item = containers.containers[index]
-            textLabel.text = item.name
-        } else {
-            textLabel.text = "Пиздец"
-            textLabel.textColor = .red
-        }
-        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
