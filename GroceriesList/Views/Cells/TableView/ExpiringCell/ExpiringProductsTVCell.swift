@@ -13,16 +13,14 @@ final class ExpiringProductsTVCell: UITableViewCell {
     @IBOutlet private weak var productsCountLabel: UILabel!
     @IBOutlet private weak var infoLabel: UILabel!
     
-    static var identifier: String {
-        String.init(describing: self)
-    }
+    var expiredProductsCounter: Int = 0
     
-    private var expiredProductsCounter: Int = 0
+    func getRotts(_ number: Int) {
+        productsCountLabel.text = "\(number)"
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        productsCountLabel.text = "\(expiredProductsCounter)"
         productsCountLabel.textColor = .black
         productsCountLabel.layer.cornerRadius = productsCountLabel.frame.height * 0.5
         productsCountLabel.layer.borderColor = UIColor.red.cgColor
