@@ -22,6 +22,12 @@
 		A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538F72BB0A12E00A3E8DA /* Extensions.swift */; };
 		A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */; };
 		A8B538FF2BB0B72800A3E8DA /* ContainerTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */; };
+		A8DD07E62C04F0010022CC3F /* EditContainerProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD07E42C04F0010022CC3F /* EditContainerProductsViewController.swift */; };
+		A8DD07E72C04F0010022CC3F /* EditContainerProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DD07E52C04F0010022CC3F /* EditContainerProductsViewController.xib */; };
+		A8DD07EC2C04F0880022CC3F /* EditContainerProdsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD07EA2C04F0880022CC3F /* EditContainerProdsTVCell.swift */; };
+		A8DD07ED2C04F0880022CC3F /* EditContainerProdsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DD07EB2C04F0880022CC3F /* EditContainerProdsTVCell.xib */; };
+		A8DD07F22C04F0F60022CC3F /* TwoButtonedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD07F02C04F0F60022CC3F /* TwoButtonedTVCell.swift */; };
+		A8DD07F32C04F0F60022CC3F /* TwoButtonedTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DD07F12C04F0F60022CC3F /* TwoButtonedTVCell.xib */; };
 		A8F899C22C00CD8500EAA771 /* DetailItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F899C02C00CD8500EAA771 /* DetailItemCollectionViewCell.swift */; };
 		A8F899C32C00CD8500EAA771 /* DetailItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F899C12C00CD8500EAA771 /* DetailItemCollectionViewCell.xib */; };
 		A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F899C52C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift */; };
@@ -48,6 +54,12 @@
 		A8B538F72BB0A12E00A3E8DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTVCell.swift; sourceTree = "<group>"; };
 		A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerTVCell.xib; sourceTree = "<group>"; };
+		A8DD07E42C04F0010022CC3F /* EditContainerProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerProductsViewController.swift; sourceTree = "<group>"; };
+		A8DD07E52C04F0010022CC3F /* EditContainerProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditContainerProductsViewController.xib; sourceTree = "<group>"; };
+		A8DD07EA2C04F0880022CC3F /* EditContainerProdsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerProdsTVCell.swift; sourceTree = "<group>"; };
+		A8DD07EB2C04F0880022CC3F /* EditContainerProdsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditContainerProdsTVCell.xib; sourceTree = "<group>"; };
+		A8DD07F02C04F0F60022CC3F /* TwoButtonedTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtonedTVCell.swift; sourceTree = "<group>"; };
+		A8DD07F12C04F0F60022CC3F /* TwoButtonedTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoButtonedTVCell.xib; sourceTree = "<group>"; };
 		A8F899C02C00CD8500EAA771 /* DetailItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8F899C12C00CD8500EAA771 /* DetailItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		A8F899C52C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -160,6 +172,51 @@
 			path = ContainerCell;
 			sourceTree = "<group>";
 		};
+		A8DD07E32C04EF870022CC3F /* EditContainerController */ = {
+			isa = PBXGroup;
+			children = (
+				A8DD07E42C04F0010022CC3F /* EditContainerProductsViewController.swift */,
+				A8DD07E52C04F0010022CC3F /* EditContainerProductsViewController.xib */,
+			);
+			path = EditContainerController;
+			sourceTree = "<group>";
+		};
+		A8DD07E82C04F0440022CC3F /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				A8AC05052BB3003B0068C377 /* ExpiringCell */,
+				A8B538FB2BB0B6D100A3E8DA /* ContainerCell */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		A8DD07E92C04F04D0022CC3F /* EditProdsVC */ = {
+			isa = PBXGroup;
+			children = (
+				A8DD07EF2C04F0CC0022CC3F /* ButtonsCell */,
+				A8DD07EE2C04F0B00022CC3F /* EditProdsCell */,
+			);
+			path = EditProdsVC;
+			sourceTree = "<group>";
+		};
+		A8DD07EE2C04F0B00022CC3F /* EditProdsCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8DD07EA2C04F0880022CC3F /* EditContainerProdsTVCell.swift */,
+				A8DD07EB2C04F0880022CC3F /* EditContainerProdsTVCell.xib */,
+			);
+			path = EditProdsCell;
+			sourceTree = "<group>";
+		};
+		A8DD07EF2C04F0CC0022CC3F /* ButtonsCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8DD07F02C04F0F60022CC3F /* TwoButtonedTVCell.swift */,
+				A8DD07F12C04F0F60022CC3F /* TwoButtonedTVCell.xib */,
+			);
+			path = ButtonsCell;
+			sourceTree = "<group>";
+		};
 		A8E5680E2BADCF740018D78C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +228,7 @@
 		A8E5680F2BADCFA30018D78C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8DD07E32C04EF870022CC3F /* EditContainerController */,
 				A8F899C92C027A2500EAA771 /* ProductController */,
 				A82DE0E92BA9D10F0000DAA4 /* MainController */,
 				A82DE0EB2BA9D1470000DAA4 /* ContainerController */,
@@ -190,8 +248,8 @@
 		A8F899BD2C00CD1400EAA771 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				A8AC05052BB3003B0068C377 /* ExpiringCell */,
-				A8B538FB2BB0B6D100A3E8DA /* ContainerCell */,
+				A8DD07E92C04F04D0022CC3F /* EditProdsVC */,
+				A8DD07E82C04F0440022CC3F /* MainVC */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -290,8 +348,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DD07E72C04F0010022CC3F /* EditContainerProductsViewController.xib in Resources */,
 				A82DE0E22BA9D0770000DAA4 /* LaunchScreen.storyboard in Resources */,
 				A8F899CD2C027B4900EAA771 /* ProductViewController.xib in Resources */,
+				A8DD07F32C04F0F60022CC3F /* TwoButtonedTVCell.xib in Resources */,
 				A8F899C32C00CD8500EAA771 /* DetailItemCollectionViewCell.xib in Resources */,
 				A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */,
 				A82DE0F02BA9D1A50000DAA4 /* MainViewController.xib in Resources */,
@@ -299,6 +359,7 @@
 				A8B538FF2BB0B72800A3E8DA /* ContainerTVCell.xib in Resources */,
 				A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */,
 				A82DE0DF2BA9D0770000DAA4 /* Assets.xcassets in Resources */,
+				A8DD07ED2C04F0880022CC3F /* EditContainerProdsTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,14 +371,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */,
+				A8DD07E62C04F0010022CC3F /* EditContainerProductsViewController.swift in Sources */,
 				A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */,
 				A8F899C22C00CD8500EAA771 /* DetailItemCollectionViewCell.swift in Sources */,
 				A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */,
 				A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */,
 				A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */,
+				A8DD07F22C04F0F60022CC3F /* TwoButtonedTVCell.swift in Sources */,
 				A8F899CC2C027B4900EAA771 /* ProductViewController.swift in Sources */,
 				A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */,
 				A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */,
+				A8DD07EC2C04F0880022CC3F /* EditContainerProdsTVCell.swift in Sources */,
 				A82DE0F32BA9D1F20000DAA4 /* MainModel.swift in Sources */,
 				A82DE0EE2BA9D18E0000DAA4 /* MainViewController.swift in Sources */,
 				A8AC05082BB3005C0068C377 /* ExpiringProductsTVCell.swift in Sources */,
