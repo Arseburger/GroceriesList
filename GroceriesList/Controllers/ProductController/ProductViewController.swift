@@ -9,7 +9,6 @@ import UIKit
 
 final class ProductViewController: UIViewController {
     
-    @IBOutlet private weak var topView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var quantityLabel: UILabel!
@@ -19,7 +18,6 @@ final class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topView.backgroundColor = .mainColor
         configure()
     }
     

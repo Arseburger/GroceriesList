@@ -81,8 +81,12 @@ extension UIViewController {
 
 extension UINavigationController {
     func setupNavigationBar() {
-        navigationBar.backIndicatorImage = UIImage(systemName: "backArrowIcon")
-        navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "backArrowIcon")
+        let appearence = UINavigationBarAppearance()
+        appearence.titleTextAttributes = [.foregroundColor : UIColor.white]
+        appearence.backgroundColor = .mainColor
+        self.navigationBar.standardAppearance = appearence
+        self.navigationBar.compactAppearance = appearence
+        self.navigationBar.scrollEdgeAppearance = appearence
     }
 }
 

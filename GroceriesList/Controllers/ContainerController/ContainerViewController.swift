@@ -17,7 +17,6 @@ final class ContainerViewController: UIViewController {
         static let vPadding: CGFloat = 8.0
     }
     
-    @IBOutlet private weak var topView: UIView!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var addItemsButton: UIButton!
     
@@ -25,11 +24,6 @@ final class ContainerViewController: UIViewController {
         super.viewDidLoad()
         setupAppearence()
         setupCollectionView()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        topView.backgroundColor = .mainColor
     }
     
     override func viewWillAppear(_ animated: Bool) {

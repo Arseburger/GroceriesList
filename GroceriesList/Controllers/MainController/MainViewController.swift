@@ -11,7 +11,6 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var addContainerButton: UIButton!
-    @IBOutlet private weak var topView: UIView!
     
     private var containers: ContainerList = .defaultItem {
         didSet {
@@ -27,7 +26,6 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        topView.backgroundColor = .mainColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
