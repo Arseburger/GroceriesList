@@ -26,6 +26,8 @@
 		A8F899C32C00CD8500EAA771 /* DetailItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F899C12C00CD8500EAA771 /* DetailItemCollectionViewCell.xib */; };
 		A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F899C52C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift */; };
 		A8F899C82C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F899C62C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib */; };
+		A8F899CC2C027B4900EAA771 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F899CA2C027B4900EAA771 /* ProductViewController.swift */; };
+		A8F899CD2C027B4900EAA771 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F899CB2C027B4900EAA771 /* ProductViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		A8F899C12C00CD8500EAA771 /* DetailItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		A8F899C52C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8F899C62C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		A8F899CA2C027B4900EAA771 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		A8F899CB2C027B4900EAA771 /* ProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		A8E5680F2BADCFA30018D78C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8F899C92C027A2500EAA771 /* ProductController */,
 				A82DE0E92BA9D10F0000DAA4 /* MainController */,
 				A82DE0EB2BA9D1470000DAA4 /* ContainerController */,
 			);
@@ -216,6 +221,15 @@
 				A8F899C62C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib */,
 			);
 			path = AddNewItemCVCell;
+			sourceTree = "<group>";
+		};
+		A8F899C92C027A2500EAA771 /* ProductController */ = {
+			isa = PBXGroup;
+			children = (
+				A8F899CA2C027B4900EAA771 /* ProductViewController.swift */,
+				A8F899CB2C027B4900EAA771 /* ProductViewController.xib */,
+			);
+			path = ProductController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82DE0E22BA9D0770000DAA4 /* LaunchScreen.storyboard in Resources */,
+				A8F899CD2C027B4900EAA771 /* ProductViewController.xib in Resources */,
 				A8F899C32C00CD8500EAA771 /* DetailItemCollectionViewCell.xib in Resources */,
 				A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */,
 				A82DE0F02BA9D1A50000DAA4 /* MainViewController.xib in Resources */,
@@ -300,6 +315,7 @@
 				A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */,
 				A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */,
 				A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */,
+				A8F899CC2C027B4900EAA771 /* ProductViewController.swift in Sources */,
 				A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */,
 				A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */,
 				A82DE0F32BA9D1F20000DAA4 /* MainModel.swift in Sources */,

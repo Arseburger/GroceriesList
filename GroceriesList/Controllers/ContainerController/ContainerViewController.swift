@@ -32,10 +32,6 @@ final class ContainerViewController: UIViewController {
         topView.backgroundColor = .mainColor
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -76,7 +72,6 @@ private extension ContainerViewController {
         addItemsButton.setTitle("Изменить остатки", for: .normal)
         addItemsButton.setTitleColor(.white, for: .normal)
         addItemsButton.layer.cornerRadius = 12
-        navigationController?.setupNavigationBar()
         navigationItem.title = container.name
     }
 }
@@ -90,7 +85,7 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let frame = collectionView.frame
-        let side = (frame.width - 3 * Constants.hPadding) / CGFloat(Constants.itemsPerRow)
+        let side = (frame.width - CGFloat((Constants.itemsPerRow + 1)) * Constants.hPadding) / CGFloat(Constants.itemsPerRow)
         
         return .init(width: side, height: side)
     }
@@ -104,6 +99,7 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if indexPath.item < container.products.count {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as? DetailItemCollectionViewCell else {
                 return UICollectionViewCell()
@@ -111,7 +107,6 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
             let item = container.products[indexPath.item]
             cell.configure(with: item)
             return cell
-            
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newProductCell", for: indexPath) as? AddNewItemCollectionViewCell else {
                 return UICollectionViewCell()
@@ -122,54 +117,16 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.item
-        let vc = UIViewController()
-        let frame = vc.view.frame
-        let width: CGFloat = 200, height: CGFloat = 40
-        vc.view.backgroundColor = .white
         
         if index < container.products.count {
             let item = container.products[index]
-            let nameLabel: UILabel = UILabel(
-                frame: .init(
-                    origin: .init(
-                        x: frame.midX - width / 2.0,
-                        y: frame.midY - height
-                    ),
-                    size: .init(
-                        width: width,
-                        height: height
-                    )
-                )
-            )
-            
-            let infoLabel: UILabel = UILabel(
-                frame: .init(
-                    origin: .init(
-                        x: frame.midX - width / 2.0,
-                        y: frame.midY - height / 2.0
-                    ),
-                    size: .init(
-                        width: width,
-                        height: height * 2.0
-                    )
-                )
-            )
-            infoLabel.numberOfLines = 3
-            
-            nameLabel.text = item.name
-            infoLabel.text = "\(item.expDate!) \(item.quantity) \(item.measureUnit.full!)"
-            [nameLabel, infoLabel].forEach { label in
-                label.textAlignment = .center
-                label.textColor = .black
-                vc.view.addSubview(label)
-            }
-            vc.view.layoutSubviews()
-            navigationController?.pushViewController(vc, animated: true)
+            let productVC = ProductViewController()
+            productVC.setProduct(product: item)
+            navigationController?.pushViewController(productVC, animated: true)
         } else {
+            let vc = UIViewController()
             goTo(vc, with: "New product")
         }
-        
-        
     }
     
 }

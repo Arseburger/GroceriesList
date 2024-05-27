@@ -30,10 +30,6 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
         topView.backgroundColor = .mainColor
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -147,7 +143,7 @@ extension MainViewController {
                     navigationController?.pushViewController(detailVC, animated: true)
                 } else {
                     let vc = UIViewController()
-                    navigationController?.pushViewController(vc, animated: true)
+                    goTo(vc, with: "Просрочка")
                 }
             default:
                 let detailVC = ContainerViewController()
