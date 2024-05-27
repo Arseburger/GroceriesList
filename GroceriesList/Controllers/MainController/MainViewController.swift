@@ -58,7 +58,6 @@ private extension MainViewController {
         tableView.allowsSelection = true
         tableView.tintColor = .clear
         tableView.separatorStyle = .none
-        tableView.contentInset = .init(top: 4, left: 0, bottom: 0, right: 0)
         
         tableView.reloadData()
     }
