@@ -37,8 +37,22 @@ extension UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func goTo(_ vc: UIViewController, with text: String) {
+    func goTo(_ vc: UIViewController, with text: String, shouldAddTopView: Bool = true) {
         let frame = vc.view.frame
+        if shouldAddTopView {
+            let topView: UIView = UIView(
+                frame: .init(
+                    origin: .zero,
+                    size: .init(
+                        width: frame.width,
+                        height: navigationController?.navigationBar.frame.minY ?? 10
+                    )
+                )
+            )
+            topView.backgroundColor = .mainColor
+            vc.view.addSubview(topView)
+        }
+        
         let width: CGFloat = 200, height: CGFloat = 40
         vc.view.backgroundColor = .white
         let label: UILabel = UILabel(
@@ -53,9 +67,11 @@ extension UIViewController {
                 )
             )
         )
+        
         label.textColor = .black
         label.textAlignment = .center
         label.text = text
+       
         vc.view.addSubview(label)
         vc.view.layoutSubviews()
         navigationController?.pushViewController(vc, animated: true)
@@ -68,4 +84,51 @@ extension UINavigationController {
         navigationBar.backIndicatorImage = UIImage(systemName: "backArrowIcon")
         navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "backArrowIcon")
     }
+}
+
+extension String {
+    
+    static func makeAttrLabelText(prefix: String? = nil, _ main: String, postfix: String? = nil) -> NSAttributedString {
+        
+        let nsString = NSMutableAttributedString()
+        
+        if let prefix = prefix {
+            nsString.append(
+                NSAttributedString(
+                    string: prefix,
+                    attributes:
+                        [
+                            .font : UIFont.boldSystemFont(ofSize: 17),
+                            .strokeColor : UIColor.black
+                        ]
+                )
+            )
+        }
+        
+        nsString.append(
+            NSAttributedString(
+                string: main,
+                attributes:
+                    [
+                        .font : UIFont.systemFont(ofSize: 17),
+                        .strokeColor : UIColor.black
+                    ]
+            )
+        )
+        
+        if let postfix = postfix {
+            nsString.append(
+                NSAttributedString(
+                    string: postfix,
+                    attributes:
+                        [
+                            .font : UIFont.italicSystemFont(ofSize: 17.0),
+                            .strokeColor : UIColor.black
+                        ]
+                )
+            )
+        }
+        return nsString
+    }
+    
 }
