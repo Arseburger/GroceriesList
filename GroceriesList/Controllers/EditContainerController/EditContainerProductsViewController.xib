@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditContainerProductsViewController" customModule="GroceriesList" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="Ycl-Gl-ig3" id="NhR-UN-Tr1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,8 +18,20 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ycl-Gl-ig3">
+                    <rect key="frame" x="0.0" y="52" width="414" height="802"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Ycl-Gl-ig3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Q74-vr-afQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ycl-Gl-ig3" secondAttribute="trailing" id="WiM-oM-KMw"/>
+                <constraint firstItem="Ycl-Gl-ig3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="fhd-T6-fpo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ycl-Gl-ig3" secondAttribute="bottom" constant="8" id="syR-2f-fKp"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="117"/>
         </view>
     </objects>

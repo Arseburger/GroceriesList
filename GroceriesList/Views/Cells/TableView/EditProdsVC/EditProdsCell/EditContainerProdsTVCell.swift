@@ -9,12 +9,12 @@ import UIKit
 
 class EditContainerProdsTVCell: UITableViewCell {
 
+    static let identifier: String = String.init(describing: EditContainerProdsTVCell.self)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
 }

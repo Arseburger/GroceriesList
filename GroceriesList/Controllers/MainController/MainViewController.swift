@@ -72,11 +72,8 @@ private extension MainViewController {
     }
     
     func setupNavBar() {
-        navigationController?.navigationBar.backgroundColor = .mainColor
-        navigationController?.navigationBar.tintColor = .white
         navigationItem.title = "Список контейнеров"
         navigationItem.backButtonTitle = "Назад"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
 }

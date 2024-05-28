@@ -20,6 +20,12 @@ final class ContainerViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var addItemsButton: UIButton!
     
+    @IBAction private func editProductsButtonPressed(_ sender: Any) {
+        let editProductsVC = EditContainerProductsViewController()
+        editProductsVC.container = self.container
+        navigationController?.pushViewController(editProductsVC, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearence()
@@ -67,7 +73,9 @@ private extension ContainerViewController {
         addItemsButton.setTitleColor(.white, for: .normal)
         addItemsButton.layer.cornerRadius = 12
         navigationItem.title = container.name
+        navigationItem.backButtonTitle = "Назад"
     }
+    
 }
 
 extension ContainerViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

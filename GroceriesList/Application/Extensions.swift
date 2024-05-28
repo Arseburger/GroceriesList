@@ -9,6 +9,17 @@ import UIKit
 
 extension UIColor {
     static let mainColor = UIColor(red: 137.0 / 255.0, green: 194.0 / 255.0, blue: 235.0 / 255.0, alpha: 1.0)
+    
+    static func randomColor() -> UIColor {
+        let rgb: (r: CGFloat, g: CGFloat, b: CGFloat) = (
+            CGFloat.random(in: 0...255) / 255.0,
+            CGFloat.random(in: 0...255) / 255.0,
+            CGFloat.random(in: 0...255) / 255.0
+        )
+        let color = UIColor(red: rgb.r, green: rgb.g, blue: rgb.b, alpha: 1.0)
+        return color
+    }
+    
 }
 
 extension Bool {
@@ -37,21 +48,8 @@ extension UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func goTo(_ vc: UIViewController, with text: String, shouldAddTopView: Bool = true) {
+    func goTo(_ vc: UIViewController, with text: String) {
         let frame = vc.view.frame
-        if shouldAddTopView {
-            let topView: UIView = UIView(
-                frame: .init(
-                    origin: .zero,
-                    size: .init(
-                        width: frame.width,
-                        height: navigationController?.navigationBar.frame.minY ?? 10
-                    )
-                )
-            )
-            topView.backgroundColor = .mainColor
-            vc.view.addSubview(topView)
-        }
         
         let width: CGFloat = 200, height: CGFloat = 40
         vc.view.backgroundColor = .white
@@ -87,6 +85,9 @@ extension UINavigationController {
         self.navigationBar.standardAppearance = appearence
         self.navigationBar.compactAppearance = appearence
         self.navigationBar.scrollEdgeAppearance = appearence
+        self.navigationBar.backgroundColor = .mainColor
+        self.navigationBar.tintColor = .white
+        self.navigationItem.backButtonTitle = "Назад"
     }
 }
 
