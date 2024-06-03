@@ -10,6 +10,8 @@ import UIKit
 extension UIColor {
     static let mainColor = UIColor(red: 137.0 / 255.0, green: 194.0 / 255.0, blue: 235.0 / 255.0, alpha: 1.0)
     
+    static let mainOpaqueColor = UIColor(red: 137.0 / 255.0, green: 194.0 / 255.0, blue: 235.0 / 255.0, alpha: 0.4)
+    
     static func randomColor() -> UIColor {
         let rgb: (r: CGFloat, g: CGFloat, b: CGFloat) = (
             CGFloat.random(in: 0...255) / 255.0,
@@ -136,4 +138,11 @@ extension String {
         return nsString
     }
     
+}
+
+extension UIView {
+    func setBorder(width: CGFloat = 1.0, color: UIColor) {
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+    }
 }

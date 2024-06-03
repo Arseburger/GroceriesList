@@ -9,7 +9,7 @@ import UIKit
 
 final class ContainerViewController: UIViewController {
 
-    var container: Storage = .init(name: "HUESOS", image: nil, products: [])
+    var container: Storage = .init(name: "baza", image: nil, products: [])
     
     private enum Constants {
         static let itemsPerRow: Int = 2
@@ -23,6 +23,13 @@ final class ContainerViewController: UIViewController {
     @IBAction private func editProductsButtonPressed(_ sender: Any) {
         let editProductsVC = EditContainerProductsViewController()
         editProductsVC.container = self.container
+        
+        editProductsVC.didUpdateProducts = { [weak self] products in
+            guard let self = self else { return }
+            self.container.products = products
+            self.collectionView.reloadData()
+            
+        }
         navigationController?.pushViewController(editProductsVC, animated: true)
     }
     

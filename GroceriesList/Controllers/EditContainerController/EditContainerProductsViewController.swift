@@ -12,7 +12,7 @@ final class EditContainerProductsViewController: UIViewController, UITableViewDa
     @IBOutlet private weak var tableView: UITableView!
     
     var container: Storage = .defaultContainer
-    var didUpdateProduct: (([Product]) -> Void)? = { _ in }
+    var didUpdateProducts: ([Product]) -> Void = { _ in }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,14 @@ final class EditContainerProductsViewController: UIViewController, UITableViewDa
         )
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        didUpdateProducts(container.products)
+    }
+    
     @objc private func toggleTableViewEditing() {
         tableView.setEditing(!tableView.isEditing, animated: true)
+        tableView.reloadRows(at: [IndexPath(row: container.products.count, section: 0)], with: .automatic)
     }
 
 }
@@ -40,14 +46,8 @@ final class EditContainerProductsViewController: UIViewController, UITableViewDa
 private extension EditContainerProductsViewController {
     
     func configureTableView() {
-        tableView.register(
-            EditContainerProdsTVCell.self,
-            forCellReuseIdentifier: EditContainerProdsTVCell.identifier
-        )
-        tableView.register(
-            TwoButtonedTVCell.self,
-            forCellReuseIdentifier: TwoButtonedTVCell.identifier
-        )
+        tableView.register(UINib(nibName: "EditContainerProdsTVCell", bundle: .main), forCellReuseIdentifier: "editProductsCell")
+        tableView.register(UINib(nibName: "TwoButtonedTVCell", bundle: .main), forCellReuseIdentifier: "twoButtonsCell")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -61,29 +61,47 @@ private extension EditContainerProductsViewController {
     
 }
 
-
 extension EditContainerProductsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        container.products.count
+        container.products.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        60
+        100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: EditContainerProdsTVCell.identifier, for: indexPath) as? EditContainerProdsTVCell else {
-            return UITableViewCell()
+        if indexPath.row < container.products.count {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "editProductsCell", for: indexPath) as? EditContainerProdsTVCell else {
+                return UITableViewCell()
+            }
+            let index = indexPath.row
+            cell.product = container.products[index]
+            
+            cell.editItem = { [weak self] vc in
+                guard let self = self else { return }
+                vc.view.backgroundColor = .white
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "twoButtonsCell", for: indexPath) as? TwoButtonedTVCell else {
+                return UITableViewCell()
+            }
+            
+            cell.isHidden = !tableView.isEditing
+            
+            cell.addNewProduct = { [weak self] in
+                guard let self = self else { return }
+                let newProduct = Product.defaultProduct
+                let newIndex = IndexPath(row: self.container.products.count, section: 0)
+                self.container.products.append(newProduct)
+                self.tableView.insertRows(at: [newIndex], with: .none)
+            }
+            
+            return cell
         }
-        
-        cell.backgroundColor = .randomColor()
-        
-        return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.cellForRow(at: indexPath) != nil {
-            print(indexPath.row + 1)
-        }
-    }
 }

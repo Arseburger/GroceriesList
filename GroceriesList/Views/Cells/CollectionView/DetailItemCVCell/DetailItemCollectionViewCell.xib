@@ -46,15 +46,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xgr-Hd-f8K">
+                                <rect key="frame" x="187" y="8.5" width="24" height="23"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Oxk-yu-2pG"/>
+                                    <constraint firstAttribute="width" constant="24" id="yWh-yU-mKm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DQQ-M8-3w6" secondAttribute="trailing" constant="8" id="4LD-7a-UKL"/>
                             <constraint firstItem="DQQ-M8-3w6" firstAttribute="leading" secondItem="1a0-Hy-qfi" secondAttribute="leading" constant="8" id="EJa-hJ-ZLp"/>
+                            <constraint firstAttribute="trailing" secondItem="xgr-Hd-f8K" secondAttribute="trailing" constant="8" id="Gwu-49-5SX"/>
                             <constraint firstAttribute="trailing" secondItem="5RC-fd-p2L" secondAttribute="trailing" constant="16" id="HNQ-My-mX1"/>
                             <constraint firstItem="5RC-fd-p2L" firstAttribute="top" secondItem="hwc-cf-6qS" secondAttribute="bottom" constant="8" id="KMn-XB-4Co"/>
                             <constraint firstItem="5RC-fd-p2L" firstAttribute="leading" secondItem="1a0-Hy-qfi" secondAttribute="leading" constant="16" id="R4N-h3-4Pp"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DQQ-M8-3w6" secondAttribute="bottom" constant="4" id="SnE-rE-Z6u"/>
+                            <constraint firstItem="xgr-Hd-f8K" firstAttribute="top" secondItem="1a0-Hy-qfi" secondAttribute="top" constant="8" id="TOf-JC-6sE"/>
                             <constraint firstItem="hwc-cf-6qS" firstAttribute="top" secondItem="1a0-Hy-qfi" secondAttribute="top" constant="16" id="ccp-xz-MPz"/>
                             <constraint firstItem="DQQ-M8-3w6" firstAttribute="top" secondItem="5RC-fd-p2L" secondAttribute="bottom" constant="4" id="qUa-Nt-Tsz"/>
                             <constraint firstItem="hwc-cf-6qS" firstAttribute="centerX" secondItem="1a0-Hy-qfi" secondAttribute="centerX" id="u41-pc-rff"/>
@@ -78,14 +88,19 @@
                 <outlet property="bottomView" destination="1a0-Hy-qfi" id="Udn-cR-oqv"/>
                 <outlet property="imageView" destination="hwc-cf-6qS" id="wdR-9R-dIJ"/>
                 <outlet property="infoLabel" destination="DQQ-M8-3w6" id="zIg-Ba-acS"/>
+                <outlet property="isExpiredSign" destination="xgr-Hd-f8K" id="rRN-a7-0dH"/>
                 <outlet property="nameLabel" destination="5RC-fd-p2L" id="Uuv-7F-JX9"/>
             </connections>
             <point key="canvasLocation" x="265.94202898550725" y="202.23214285714286"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -73,6 +73,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="bottomView" destination="68A-pY-rzW" id="9TT-T8-FH6"/>
                 <outlet property="infoLabel" destination="NCR-1s-cQq" id="wx7-Q0-OCJ"/>
                 <outlet property="productsCountLabel" destination="Z5t-5a-o3a" id="pDn-Ku-SUi"/>
                 <outlet property="rightArrow" destination="MI7-pD-16O" id="9G0-Gn-q03"/>

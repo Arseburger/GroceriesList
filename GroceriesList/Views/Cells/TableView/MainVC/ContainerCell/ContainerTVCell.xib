@@ -95,6 +95,7 @@
             <connections>
                 <outlet property="arrowImage" destination="BtH-Xs-Wwn" id="Rrb-Re-ogc"/>
                 <outlet property="bottomLabel" destination="Nhg-Ce-TG4" id="HHw-zu-TCP"/>
+                <outlet property="bottomView" destination="Cco-jY-0gt" id="z8l-U6-i5k"/>
                 <outlet property="imageLogo" destination="db1-LP-66Z" id="EcV-yx-knM"/>
                 <outlet property="topLabel" destination="hfq-fO-kv2" id="nfC-h4-C68"/>
             </connections>
