@@ -9,7 +9,9 @@ import UIKit
 
 final class ContainerViewController: UIViewController {
 
-    var container: Storage = .init(name: "HUESOS", image: nil, products: [])
+    var container: Storage = .init(name: "baza", image: nil, products: [])
+    
+    var updateContainer: (Storage) -> Void = { _ in }
     
     private enum Constants {
         static let itemsPerRow: Int = 2
@@ -20,6 +22,19 @@ final class ContainerViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var addItemsButton: UIButton!
     
+    @IBAction private func editProductsButtonPressed(_ sender: Any) {
+        let editProductsVC = EditContainerProductsViewController()
+        editProductsVC.container = self.container
+        
+        editProductsVC.didUpdateProducts = { [weak self] products in
+            guard let self = self else { return }
+            self.container.products = products
+            self.collectionView.reloadData()
+            
+        }
+        navigationController?.pushViewController(editProductsVC, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearence()
@@ -29,13 +44,56 @@ final class ContainerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.rightBarButtonItem = .init(
+            image: UIImage(systemName: "arrow.up.arrow.down"),
+            menu: UIMenu(title: "", children: configureActions())
+        )
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        updateContainer(container)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        container.sortedProducts = container.products
     }
     
 }
 
 private extension ContainerViewController {
     
+    func handler(for action: UIAction) {
+        switch action.identifier.rawValue {
+            case "1":
+                container.sortedProducts = container.products.sorted {
+                    $0.expDate! > $1.expDate!
+                }
+                collectionView.reconfigureItems(at: (0..<container.products.count).map({ IndexPath(item: $0, section: 0)
+                }))
+            case "2":
+                container.sortedProducts = container.products.sorted {
+                    $0.name < $1.name
+                }
+                collectionView.reloadData()
+            default:
+                container.sortedProducts = container.products
+                collectionView.reloadData()
+        }
+    }
+    
+    func configureActions() -> [UIAction] {
+        var actions: [UIAction] = []
+        let sortByDateAction: UIAction = UIAction(title: "Срок годности", identifier: .init("1"), handler: handler)
+        let sortByNameAction: UIAction = UIAction(title: "Название", identifier: .init("2"), handler: handler)
+        let clearSortAction: UIAction = UIAction(title: "Сброс", identifier: .init("3"), handler: handler)
+        actions = [sortByDateAction, sortByNameAction, clearSortAction]
+        return actions
+    }
+    
     func setupCollectionView() {
+        
         collectionView.register(
             UINib(
                 nibName: "DetailItemCollectionViewCell",
@@ -67,7 +125,9 @@ private extension ContainerViewController {
         addItemsButton.setTitleColor(.white, for: .normal)
         addItemsButton.layer.cornerRadius = 12
         navigationItem.title = container.name
+        navigationItem.backButtonTitle = "Назад"
     }
+    
 }
 
 extension ContainerViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -98,7 +158,7 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as? DetailItemCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            let item = container.products[indexPath.item]
+            let item = container.sortedProducts[indexPath.item]
             cell.configure(with: item)
             return cell
         } else {
@@ -113,7 +173,7 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
         let index = indexPath.item
         
         if index < container.products.count {
-            let item = container.products[index]
+            let item = container.sortedProducts[index]
             let productVC = ProductViewController()
             productVC.setProduct(product: item)
             navigationController?.pushViewController(productVC, animated: true)

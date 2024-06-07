@@ -13,6 +13,7 @@ final class ContainerTVCell: UITableViewCell {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet weak var bottomView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +23,13 @@ final class ContainerTVCell: UITableViewCell {
         arrowImage.window?.layer.cornerRadius = 20
         layer.cornerRadius = frame.height * 0.25
     }
-
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        bottomView.setBorder(width: highlighted ? 1 : 0, color: .mainColor)
+        layer.opacity = highlighted ? 0.6 : 1.0
+    }
+    
     func configure(with item: Storage) {
         topLabel.text = item.name
         if let image = item.image {

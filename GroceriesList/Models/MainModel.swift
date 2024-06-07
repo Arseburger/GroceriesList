@@ -29,12 +29,19 @@ struct Storage {
     static var defaultContainer: Storage = .init(
         name: "Холодильник",
         image: UIImage(named: "fridge"),
-        products: [.defaultProduct, .defaultProduct]
+        products: [.defaultProduct, .tomato, .water, .pasta, .cake]
     )
     
     var name: String
     var image: UIImage?
-    var products: [Product]
+    var products: [Product] {
+        didSet {
+            sortedProducts = products
+        }
+    }
+    
+    var sortedProducts: [Product]
+    
     var expiredProducts: [Product] {
         var result: [Product] = []
         products.forEach { product in
@@ -51,17 +58,11 @@ struct Storage {
         self.name = name
         self.image = image
         self.products = products
+        self.sortedProducts = self.products
     }
 }
 
 struct Product {
-    static var defaultProduct: Product = .init(
-        name: "Огурцы",
-        expDate: "24/5/2024",
-        quantity: 3,
-        image: UIImage.init(systemName: "circle.grid.cross"),
-        measureUnit: ("штук", "шт")
-    )
     
     var name: String
     var expDate: Date?
@@ -81,4 +82,42 @@ struct Product {
             self.expDate = dateFormatter.date(from: date)
         }
     }
+}
+
+extension Product {
+    static let defaultProduct: Product = .init(
+        name: "Огурцы",
+        expDate: "24/5/2024",
+        quantity: 3,
+        image: UIImage.init(systemName: "die.face.5.fill"),
+        measureUnit: ("штук", "шт")
+    )
+    static let tomato = Product.init(
+        name: "Помидоры",
+        expDate: "21/04/24",
+        quantity: 3,
+        image: .init(systemName: "die.face.1"),
+        measureUnit: ("штук", "шт")
+    )
+    static let water = Product.init(
+        name: "Вода",
+        expDate: "30/06/2024",
+        quantity: 1.4,
+        image: .init(systemName: "die.face.2"),
+        measureUnit: ("литра", "л")
+    )
+    static let cake = Product.init(
+        name: "Торт",
+        expDate: "29/05/24",
+        quantity: 0.5,
+        image: .init(systemName: "die.face.3"),
+        measureUnit: ("куска", "кус")
+    )
+    static let pasta = Product.init(
+        name: "Макароны",
+        expDate: "27/05/24",
+        quantity: 350,
+        image: .init(systemName: "die.face.4"),
+        measureUnit: ("граммов", "гр")
+    )
 }
