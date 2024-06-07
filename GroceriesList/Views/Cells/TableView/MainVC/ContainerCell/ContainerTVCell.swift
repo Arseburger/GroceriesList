@@ -26,9 +26,8 @@ final class ContainerTVCell: UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        arrowImage.tintColor = highlighted ? .mainOpaqueColor : .mainColor
-        bottomView.layer.borderWidth = highlighted ? 1 : 0
-        bottomView.layer.borderColor = highlighted ? UIColor.mainOpaqueColor.cgColor : .none
+        bottomView.setBorder(width: highlighted ? 1 : 0, color: .mainColor)
+        layer.opacity = highlighted ? 0.6 : 1.0
     }
     
     func configure(with item: Storage) {

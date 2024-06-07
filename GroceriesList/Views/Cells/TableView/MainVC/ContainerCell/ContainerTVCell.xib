@@ -33,19 +33,19 @@
                                 </variation>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hl0-OM-8IS">
-                                <rect key="frame" x="152" y="58" width="41.5" height="52"/>
+                                <rect key="frame" x="152" y="58" width="43.5" height="52"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfq-fO-kv2">
-                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="750" constant="24" id="ESB-BP-jAN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-Ce-TG4">
-                                        <rect key="frame" x="0.0" y="28" width="41.5" height="24"/>
+                                        <rect key="frame" x="0.0" y="28" width="43.5" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="NLQ-Gd-lMT"/>
                                         </constraints>

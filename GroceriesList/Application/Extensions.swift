@@ -77,6 +77,11 @@ extension UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func getSwipeToDeleteAction(_ completion: @escaping UIContextualAction.Handler) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Удалить", handler: completion)
+        return action
+    }
+    
 }
 
 extension UINavigationController {

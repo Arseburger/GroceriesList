@@ -37,6 +37,7 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
 private extension MainViewController {
     
     func configureTableView() {
+        
         tableView.register(
             UINib(
                 nibName: "ContainerTVCell",
@@ -50,7 +51,8 @@ private extension MainViewController {
                 nibName: "ExpiringProductsTVCell",
                 bundle: .main
             ),
-            forCellReuseIdentifier: "expiredTVCell")
+            forCellReuseIdentifier: "expiredTVCell"
+        )
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -80,11 +82,7 @@ private extension MainViewController {
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return containers.hasExpiringProducts ? 1 : 0
-        } else {
-            return containers.containers.count
-        }
+        section > 0 ? containers.containers.count : containers.hasExpiringProducts ? 1 : 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -96,30 +94,30 @@ extension MainViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            switch indexPath.section {
-                case 0:
-                    guard let cell = tableView.dequeueReusableCell(
-                        withIdentifier: "expiredTVCell",
-                        for: indexPath
-                    ) as? ExpiringProductsTVCell else {
-                        return UITableViewCell()
-                    }
-                    var number: Int = 0
-                    containers.containers.forEach({ item in
-                        number += item.expiredProducts.count
-                    })
-                    cell.getRotts(number)
-                    return cell
-                default:
-                    guard let cell = tableView.dequeueReusableCell(
-                        withIdentifier: "containerTVCell",
-                        for: indexPath
-                    ) as? ContainerTVCell else {
-                        return UITableViewCell()
-                    }
-                    cell.configure(with: containers.containers[indexPath.row])
-                    return cell
-            }
+        switch indexPath.section {
+            case 0:
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "expiredTVCell",
+                    for: indexPath
+                ) as? ExpiringProductsTVCell else {
+                    return UITableViewCell()
+                }
+                var number: Int = 0
+                containers.containers.forEach({ item in
+                    number += item.expiredProducts.count
+                })
+                cell.getRotts(number)
+                return cell
+            default:
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "containerTVCell",
+                    for: indexPath
+                ) as? ContainerTVCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(with: containers.containers[indexPath.row])
+                return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -130,6 +128,11 @@ extension MainViewController {
             default:
                 let detailVC = ContainerViewController()
                 detailVC.container = containers.containers[indexPath.row]
+                detailVC.updateContainer = { [weak self] container in
+                    guard let self = self else { return }
+                    self.containers.containers[indexPath.row] = container
+                    self.tableView.reloadData()
+                }
                 navigationController?.pushViewController(detailVC, animated: true)
         }
     }
@@ -139,16 +142,23 @@ extension MainViewController {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        print(containers.containers.count)
-        return .init(actions: [.init(style: .destructive, title: "Удалить", handler: { [weak self] _, _, _ in
-            guard let self = self else { return }
-            guard self.containers.containers.count > 1 else {
-                return
-            }
-            self.containers.containers.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-        })])
+        return .init(
+            actions: [
+                .init(
+                    style: .destructive,
+                    title: "Удалить",
+                    handler: { [weak self] _, _, _ in
+                        guard let self = self else { return }
+                        guard self.containers.containers.count > 1 else {
+                            return
+                        }
+                        self.containers.containers.remove(at: indexPath.row)
+                        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                        self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+                    }
+                )
+            ]
+        )
     }
     
 }

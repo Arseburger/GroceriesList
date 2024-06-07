@@ -22,18 +22,8 @@ final class ExpiringProductsTVCell: UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        
-        rightArrow.tintColor = highlighted
-        ? .red.withAlphaComponent(0.4)
-        : .red.withAlphaComponent(0.6)
-        
-        bottomView.setBorder(width: highlighted ? 1.0 : 0.0,
-                             color: .red.withAlphaComponent(0.4)
-        )
-        
-        productsCountLabel.setBorder(color: highlighted ? .red.withAlphaComponent(0.4) : .red)
+        bottomView.setBorder(width: highlighted ? 1.0 : 0.0, color: .red.withAlphaComponent(0.6))
         layer.opacity = highlighted ? 0.7 : 1.0
-        productsCountLabel.textColor = highlighted ? .black : .black.withAlphaComponent(0.7)
     }
     
     override func awakeFromNib() {

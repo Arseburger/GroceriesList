@@ -33,4 +33,11 @@ class DetailItemCollectionViewCell: UICollectionViewCell {
         infoLabel.text = "\(item.quantity) \(item.measureUnit.short!)"
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            bottomView.setBorder(width: isHighlighted ? 1.0 : 0.0, color: .mainColor)
+            layer.opacity = isHighlighted ? 0.8 : 1.0
+        }
+    }
+    
 }

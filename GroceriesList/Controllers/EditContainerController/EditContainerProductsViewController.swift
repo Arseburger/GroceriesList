@@ -24,10 +24,10 @@ final class EditContainerProductsViewController: UIViewController, UITableViewDa
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.title = "Изменить продукты"
         navigationItem.rightBarButtonItem = .init(
-            image: UIImage.init(systemName: "pencil"),
+            image: UIImage.init(systemName: "plus"),
             style: .plain,
             target: self,
-            action: #selector(toggleTableViewEditing)
+            action: #selector(addNewProduct)
         )
     }
     
@@ -36,18 +36,18 @@ final class EditContainerProductsViewController: UIViewController, UITableViewDa
         didUpdateProducts(container.products)
     }
     
-    @objc private func toggleTableViewEditing() {
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        tableView.reloadRows(at: [IndexPath(row: container.products.count, section: 0)], with: .automatic)
-    }
-
 }
 
 private extension EditContainerProductsViewController {
+    @objc private func addNewProduct() {
+        let newProduct = Product.defaultProduct
+        let newIndex = IndexPath(row: container.products.count, section: 0)
+        container.products.append(newProduct)
+        tableView.insertRows(at: [newIndex], with: .fade)
+    }
     
     func configureTableView() {
         tableView.register(UINib(nibName: "EditContainerProdsTVCell", bundle: .main), forCellReuseIdentifier: "editProductsCell")
-        tableView.register(UINib(nibName: "TwoButtonedTVCell", bundle: .main), forCellReuseIdentifier: "twoButtonsCell")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -56,14 +56,14 @@ private extension EditContainerProductsViewController {
         tableView.tintColor = .clear
         tableView.allowsSelection = true
         tableView.reloadData()
-        
     }
     
 }
 
 extension EditContainerProductsViewController {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        container.products.count + 1
+        container.products.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -71,37 +71,33 @@ extension EditContainerProductsViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < container.products.count {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "editProductsCell", for: indexPath) as? EditContainerProdsTVCell else {
                 return UITableViewCell()
             }
-            let index = indexPath.row
-            cell.product = container.products[index]
+            
+            cell.product = container.products[indexPath.row]
             
             cell.editItem = { [weak self] vc in
                 guard let self = self else { return }
                 vc.view.backgroundColor = .white
                 self.navigationController?.pushViewController(vc, animated: true)
-                
             }
             return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "twoButtonsCell", for: indexPath) as? TwoButtonedTVCell else {
-                return UITableViewCell()
-            }
-            
-            cell.isHidden = !tableView.isEditing
-            
-            cell.addNewProduct = { [weak self] in
-                guard let self = self else { return }
-                let newProduct = Product.defaultProduct
-                let newIndex = IndexPath(row: self.container.products.count, section: 0)
-                self.container.products.append(newProduct)
-                self.tableView.insertRows(at: [newIndex], with: .none)
-            }
-            
-            return cell
-        }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration(
+            actions: [
+                getSwipeToDeleteAction { [weak self] _, _, _ in
+                    guard let self = self else { return }
+                    self.container.products.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+            ]
+        )
+    }
 }

@@ -34,7 +34,14 @@ struct Storage {
     
     var name: String
     var image: UIImage?
-    var products: [Product]
+    var products: [Product] {
+        didSet {
+            sortedProducts = products
+        }
+    }
+    
+    var sortedProducts: [Product]
+    
     var expiredProducts: [Product] {
         var result: [Product] = []
         products.forEach { product in
@@ -51,6 +58,7 @@ struct Storage {
         self.name = name
         self.image = image
         self.products = products
+        self.sortedProducts = self.products
     }
 }
 

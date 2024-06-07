@@ -34,16 +34,19 @@ class EditContainerProdsTVCell: UITableViewCell {
         setupAppearence()
         selectionStyle = .none
     }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        bottomView.setBorder(width: isHighlighted ? 1.0 : 0.0, color: .mainColor)
+    }
 
     private func setupAppearence() {
         [quantityLabel, measureUnitLabel].forEach { label in
             label?.textColor = .black
         }
-        nameLabel.font = .boldSystemFont(ofSize: 18)
-        quantityLabel.font = .systemFont(ofSize: 10)
-        measureUnitLabel.font = .systemFont(ofSize: 10)
-        measureUnitLabel.numberOfLines = 2
-        quantityLabel.numberOfLines = 2
+        nameLabel.font = .boldSystemFont(ofSize: 20)
+        quantityLabel.font = .systemFont(ofSize: 12)
+        measureUnitLabel.font = .italicSystemFont(ofSize: 10)
         editButton.tintColor = .systemGray4
         productImageView.tintColor = .red
         bottomView.layer.cornerRadius = bottomView.frame.height * 0.1
@@ -51,8 +54,8 @@ class EditContainerProdsTVCell: UITableViewCell {
     
     func configure() {
         nameLabel.text = product.name
-        quantityLabel.text = "Количество: \n\(product.quantity)"
-        measureUnitLabel.text = "Единица измерения: \n\(product.measureUnit.full!) (\(product.measureUnit.short!))"
+        quantityLabel.text = "Количество: \(product.quantity)"
+        measureUnitLabel.text = "Единица измерения: \(product.measureUnit.full!) (\(product.measureUnit.short!))"
         if let image = product.image {
             productImageView.image = image
         }
