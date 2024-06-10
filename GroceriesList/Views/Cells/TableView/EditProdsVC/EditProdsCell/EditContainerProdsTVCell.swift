@@ -21,7 +21,7 @@ class EditContainerProdsTVCell: UITableViewCell {
         print("edit")
     }
     
-    var product: Product = .init(name: "gâteau", expDate: "28/4/2029", quantity: 2, image: .init(systemName: ""), measureUnit: ("кусок", "кус")) {
+    var product: Product = .init(name: "gâteau", expDate: .shortDate(day: 29, month: 4, year: 2027), quantity: 2, image: .init(systemName: ""), measureUnit: ("кусок", "кус")) {
         didSet {
             configure()
         }

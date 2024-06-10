@@ -7,6 +7,8 @@
 
 import UIKit
 
+public typealias MeasureUnit = (full: String?, short: String?)
+
 struct ContainerList {
     
     static var defaultItem = ContainerList(items: Array.init(repeating: .defaultContainer, count: 5))
@@ -68,56 +70,56 @@ struct Product {
     var expDate: Date?
     var quantity: Double
     var image: UIImage?
-    var measureUnit: (full: String?, short: String?)
+    var measureUnit: MeasureUnit
     
-    init(name: String, expDate: String?, quantity: Double, image: UIImage?, measureUnit: (String?, String?)) {
+    init(name: String, expDate: Date, quantity: Double, image: UIImage?, measureUnit: MeasureUnit) {
         self.name = name
         self.quantity = quantity
         self.image = image
         self.measureUnit = measureUnit
-        if let date = expDate {
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeZone = .init(abbreviation: "MSK")
-            dateFormatter.dateFormat = "dd/MM/yyyy"
-            self.expDate = dateFormatter.date(from: date)
-        }
+        self.expDate = expDate
     }
 }
 
 extension Product {
     static let defaultProduct: Product = .init(
         name: "Огурцы",
-        expDate: "24/5/2024",
+        expDate: .shortDate(day: 24, month: 5, year: 2024),
         quantity: 3,
         image: UIImage.init(systemName: "die.face.5.fill"),
         measureUnit: ("штук", "шт")
     )
     static let tomato = Product.init(
         name: "Помидоры",
-        expDate: "21/04/24",
+        expDate: .shortDate(day: 21, month: 4, year: 2024),
         quantity: 3,
         image: .init(systemName: "die.face.1"),
         measureUnit: ("штук", "шт")
     )
     static let water = Product.init(
         name: "Вода",
-        expDate: "30/06/2024",
+        expDate: .shortDate(day: 30, month: 6, year: 2024),
         quantity: 1.4,
         image: .init(systemName: "die.face.2"),
         measureUnit: ("литра", "л")
     )
     static let cake = Product.init(
         name: "Торт",
-        expDate: "29/05/24",
+        expDate: .shortDate(day: 29, month: 5, year: 2024),
         quantity: 0.5,
         image: .init(systemName: "die.face.3"),
         measureUnit: ("куска", "кус")
     )
     static let pasta = Product.init(
         name: "Макароны",
-        expDate: "27/05/24",
+        expDate: .shortDate(day: 27, month: 5, year: 2024),
         quantity: 350,
         image: .init(systemName: "die.face.4"),
         measureUnit: ("граммов", "гр")
     )
+}
+
+class MeasureUnitStorage {
+    static let shared = MeasureUnitStorage()
+    var units: [MeasureUnit] = [("Штук","шт"), ("Грамм","гр"), ("куска", "кус"), ("литра", "л")]
 }

@@ -178,8 +178,15 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
             productVC.setProduct(product: item)
             navigationController?.pushViewController(productVC, animated: true)
         } else {
-            let vc = UIViewController()
-            goTo(vc, with: "New product")
+            let vc = NewProductViewController()
+            vc.addNewProduct = { [weak self] product in
+                guard let self = self else { return }
+                self.container.products.append(product)
+                self.collectionView.insertItems(at: [IndexPath(item: self.container.products.count - 1, section: 0)])
+                self.collectionView.reloadData()
+                
+            }
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

@@ -64,7 +64,7 @@ private extension MainViewController {
     }
     
     func setupAppearence() {
-        addContainerButton.tintColor = UIColor.mainColor
+        addContainerButton.tintColor = .mainColor
         addContainerButton.setTitle("Изменить остатки", for: .normal)
         addContainerButton.setTitleColor(.white, for: .normal)
         addContainerButton.layer.cornerRadius = 12
