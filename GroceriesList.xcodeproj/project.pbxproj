@@ -17,6 +17,8 @@
 		A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */; };
 		A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */; };
 		A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */; };
+		A8796F8E2C1390E20011991B /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8796F8C2C1390E20011991B /* NewProductViewController.swift */; };
+		A8796F8F2C1390E20011991B /* NewProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8796F8D2C1390E20011991B /* NewProductViewController.xib */; };
 		A8AC05082BB3005C0068C377 /* ExpiringProductsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */; };
 		A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AC05072BB3005C0068C377 /* ExpiringProductsTVCell.xib */; };
 		A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538F72BB0A12E00A3E8DA /* Extensions.swift */; };
@@ -47,6 +49,8 @@
 		A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
+		A8796F8C2C1390E20011991B /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
+		A8796F8D2C1390E20011991B /* NewProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewProductViewController.xib; sourceTree = "<group>"; };
 		A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringProductsTVCell.swift; sourceTree = "<group>"; };
 		A8AC05072BB3005C0068C377 /* ExpiringProductsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiringProductsTVCell.xib; sourceTree = "<group>"; };
 		A8B538F72BB0A12E00A3E8DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A8796F8B2C1390A20011991B /* NewProductController */ = {
+			isa = PBXGroup;
+			children = (
+				A8796F8C2C1390E20011991B /* NewProductViewController.swift */,
+				A8796F8D2C1390E20011991B /* NewProductViewController.xib */,
+			);
+			path = NewProductController;
+			sourceTree = "<group>";
+		};
 		A884D3822BB1828E0046BD4B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +227,7 @@
 		A8E5680F2BADCFA30018D78C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8796F8B2C1390A20011991B /* NewProductController */,
 				A8DD07E32C04EF870022CC3F /* EditContainerController */,
 				A8F899C92C027A2500EAA771 /* ProductController */,
 				A82DE0E92BA9D10F0000DAA4 /* MainController */,
@@ -345,6 +359,7 @@
 				A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */,
 				A82DE0DF2BA9D0770000DAA4 /* Assets.xcassets in Resources */,
 				A8DD07ED2C04F0880022CC3F /* EditContainerProdsTVCell.xib in Resources */,
+				A8796F8F2C1390E20011991B /* NewProductViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +373,7 @@
 				A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */,
 				A8DD07E62C04F0010022CC3F /* EditContainerProductsViewController.swift in Sources */,
 				A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */,
+				A8796F8E2C1390E20011991B /* NewProductViewController.swift in Sources */,
 				A8F899C22C00CD8500EAA771 /* DetailItemCollectionViewCell.swift in Sources */,
 				A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */,
 				A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */,

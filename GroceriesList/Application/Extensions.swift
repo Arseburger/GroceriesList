@@ -151,3 +151,9 @@ extension UIView {
         layer.borderColor = color.cgColor
     }
 }
+
+extension Date {
+    static func shortDate(day: Int, month: Int, year: Int) -> Date {
+        DateComponents.init(calendar: .init(identifier: .gregorian), timeZone: .init(abbreviation: "MSK"), year: year, month: month, day: day).date ?? Date.now
+    }
+}

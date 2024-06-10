@@ -14,7 +14,7 @@ final class ProductViewController: UIViewController {
     @IBOutlet private weak var quantityLabel: UILabel!
     @IBOutlet private weak var expDateLabel: UILabel!
     
-    var product: Product = .init(name: "Жопа", expDate: "19/07/2029", quantity: 1.5, image: UIImage(systemName: "pencil"), measureUnit: ("плн", "полная"))
+    var product: Product = .init(name: "Жопа", expDate: .shortDate(day: 19, month: 7, year: 2029), quantity: 1.5, image: UIImage(systemName: "pencil"), measureUnit: ("плн", "полная"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
