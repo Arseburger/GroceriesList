@@ -21,7 +21,7 @@ class EditContainerProdsTVCell: UITableViewCell {
         print("edit")
     }
     
-    var product: Product = .init(name: "gâteau", expDate: .shortDate(day: 29, month: 4, year: 2027), quantity: 2, image: .init(systemName: ""), measureUnit: ("кусок", "кус")) {
+    var product: Product = .randomProduct() {
         didSet {
             configure()
         }
@@ -31,8 +31,9 @@ class EditContainerProdsTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupAppearence()
         selectionStyle = .none
+
+        setupAppearence()
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
@@ -54,11 +55,13 @@ class EditContainerProdsTVCell: UITableViewCell {
     
     func configure() {
         nameLabel.text = product.name
-        quantityLabel.text = "Количество: \(product.quantity)"
+        
+        quantityLabel.text = "Количество: " + product.qtyStr
         measureUnitLabel.text = "Единица измерения: \(product.measureUnit.full!) (\(product.measureUnit.short!))"
         if let image = product.image {
             productImageView.image = image
         }
+        productImageView.tintColor = product.color
     }
     
 }

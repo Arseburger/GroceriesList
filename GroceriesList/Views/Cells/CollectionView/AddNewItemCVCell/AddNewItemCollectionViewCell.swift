@@ -16,11 +16,12 @@ class AddNewItemCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bottomView.layer.cornerRadius = bottomView.frame.width * 0.1
+        bottomView.setShadow(color: .darkGray)
     }
     
     override var isHighlighted: Bool {
         didSet {
-            bottomView.setBorder(width: isHighlighted ? 1.0 : 0.0, color: .mainColor)
+            bottomView.setBorder(width: isHighlighted ? 1.0 : 0.0, color: .darkGray.withAlphaComponent(0.5))
             layer.opacity = isHighlighted ? 0.8 : 1.0
         }
     }

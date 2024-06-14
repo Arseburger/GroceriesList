@@ -28,7 +28,9 @@ final class ContainerViewController: UIViewController {
         
         editProductsVC.didUpdateProducts = { [weak self] products in
             guard let self = self else { return }
-            self.container.products = products
+            self.container.products = products.sorted(by: {
+                $0.expDate > $1.expDate
+            })
             self.collectionView.reloadData()
             
         }
@@ -68,10 +70,9 @@ private extension ContainerViewController {
         switch action.identifier.rawValue {
             case "1":
                 container.sortedProducts = container.products.sorted {
-                    $0.expDate! > $1.expDate!
+                    $0.expDate > $1.expDate
                 }
-                collectionView.reconfigureItems(at: (0..<container.products.count).map({ IndexPath(item: $0, section: 0)
-                }))
+                collectionView.reloadData()
             case "2":
                 container.sortedProducts = container.products.sorted {
                     $0.name < $1.name
@@ -87,8 +88,7 @@ private extension ContainerViewController {
         var actions: [UIAction] = []
         let sortByDateAction: UIAction = UIAction(title: "Срок годности", identifier: .init("1"), handler: handler)
         let sortByNameAction: UIAction = UIAction(title: "Название", identifier: .init("2"), handler: handler)
-        let clearSortAction: UIAction = UIAction(title: "Сброс", identifier: .init("3"), handler: handler)
-        actions = [sortByDateAction, sortByNameAction, clearSortAction]
+        actions = [sortByDateAction, sortByNameAction]
         return actions
     }
     

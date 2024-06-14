@@ -17,6 +17,10 @@
 		A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */; };
 		A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */; };
 		A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */; };
+		A869F2222C17751A00E55C87 /* ExpiringProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */; };
+		A869F2232C17751A00E55C87 /* ExpiringProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */; };
+		A869F2272C17773300E55C87 /* ExpiredProductTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A869F2252C17773300E55C87 /* ExpiredProductTVCell.swift */; };
+		A869F2282C17773300E55C87 /* ExpiredProductTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A869F2262C17773300E55C87 /* ExpiredProductTVCell.xib */; };
 		A8796F8E2C1390E20011991B /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8796F8C2C1390E20011991B /* NewProductViewController.swift */; };
 		A8796F8F2C1390E20011991B /* NewProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8796F8D2C1390E20011991B /* NewProductViewController.xib */; };
 		A8AC05082BB3005C0068C377 /* ExpiringProductsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */; };
@@ -49,6 +53,10 @@
 		A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
+		A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringProductsViewController.swift; sourceTree = "<group>"; };
+		A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiringProductsViewController.xib; sourceTree = "<group>"; };
+		A869F2252C17773300E55C87 /* ExpiredProductTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredProductTVCell.swift; sourceTree = "<group>"; };
+		A869F2262C17773300E55C87 /* ExpiredProductTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiredProductTVCell.xib; sourceTree = "<group>"; };
 		A8796F8C2C1390E20011991B /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
 		A8796F8D2C1390E20011991B /* NewProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewProductViewController.xib; sourceTree = "<group>"; };
 		A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringProductsTVCell.swift; sourceTree = "<group>"; };
@@ -144,6 +152,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A869F21F2C1774EA00E55C87 /* ExpiringProductsController */ = {
+			isa = PBXGroup;
+			children = (
+				A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */,
+				A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */,
+			);
+			path = ExpiringProductsController;
+			sourceTree = "<group>";
+		};
+		A869F2242C1776E600E55C87 /* ExpProdsVC */ = {
+			isa = PBXGroup;
+			children = (
+				A869F2252C17773300E55C87 /* ExpiredProductTVCell.swift */,
+				A869F2262C17773300E55C87 /* ExpiredProductTVCell.xib */,
+			);
+			path = ExpProdsVC;
+			sourceTree = "<group>";
+		};
 		A8796F8B2C1390A20011991B /* NewProductController */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +253,7 @@
 		A8E5680F2BADCFA30018D78C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A869F21F2C1774EA00E55C87 /* ExpiringProductsController */,
 				A8796F8B2C1390A20011991B /* NewProductController */,
 				A8DD07E32C04EF870022CC3F /* EditContainerController */,
 				A8F899C92C027A2500EAA771 /* ProductController */,
@@ -248,6 +275,7 @@
 		A8F899BD2C00CD1400EAA771 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				A869F2242C1776E600E55C87 /* ExpProdsVC */,
 				A8DD07E92C04F04D0022CC3F /* EditProdsVC */,
 				A8DD07E82C04F0440022CC3F /* MainVC */,
 			);
@@ -351,7 +379,9 @@
 				A8DD07E72C04F0010022CC3F /* EditContainerProductsViewController.xib in Resources */,
 				A82DE0E22BA9D0770000DAA4 /* LaunchScreen.storyboard in Resources */,
 				A8F899CD2C027B4900EAA771 /* ProductViewController.xib in Resources */,
+				A869F2282C17773300E55C87 /* ExpiredProductTVCell.xib in Resources */,
 				A8F899C32C00CD8500EAA771 /* DetailItemCollectionViewCell.xib in Resources */,
+				A869F2232C17751A00E55C87 /* ExpiringProductsViewController.xib in Resources */,
 				A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */,
 				A82DE0F02BA9D1A50000DAA4 /* MainViewController.xib in Resources */,
 				A8F899C82C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib in Resources */,
@@ -378,12 +408,14 @@
 				A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */,
 				A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */,
 				A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */,
+				A869F2222C17751A00E55C87 /* ExpiringProductsViewController.swift in Sources */,
 				A8F899CC2C027B4900EAA771 /* ProductViewController.swift in Sources */,
 				A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */,
 				A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */,
 				A8DD07EC2C04F0880022CC3F /* EditContainerProdsTVCell.swift in Sources */,
 				A82DE0F32BA9D1F20000DAA4 /* MainModel.swift in Sources */,
 				A82DE0EE2BA9D18E0000DAA4 /* MainViewController.swift in Sources */,
+				A869F2272C17773300E55C87 /* ExpiredProductTVCell.swift in Sources */,
 				A8AC05082BB3005C0068C377 /* ExpiringProductsTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

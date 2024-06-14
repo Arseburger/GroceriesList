@@ -12,10 +12,14 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var addContainerButton: UIButton!
     
-    private var containers: ContainerList = .defaultItem {
-        didSet {
-        }
+    @IBAction private func addButtonPressed(_ sender: Any) {
+        containers.containers.append(.randomContainer())
+        tableView.reloadData()
+        let lastIndex = IndexPath(row: containers.containers.count - 1, section: 1)
+        tableView.scrollToRow(at: lastIndex, at: .bottom, animated: true)
     }
+    
+    var containers: ContainerList = ContainerList.randomItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,9 +69,10 @@ private extension MainViewController {
     
     func setupAppearence() {
         addContainerButton.tintColor = .mainColor
-        addContainerButton.setTitle("Изменить остатки", for: .normal)
+        addContainerButton.setTitle("Добавить контейнер", for: .normal)
         addContainerButton.setTitleColor(.white, for: .normal)
         addContainerButton.layer.cornerRadius = 12
+        addContainerButton.setImage(.init(systemName: "plus"), for: .normal)
         
         setupNavBar()
     }
@@ -75,6 +80,27 @@ private extension MainViewController {
     func setupNavBar() {
         navigationItem.title = "Список контейнеров"
         navigationItem.backButtonTitle = "Назад"
+        navigationItem.rightBarButtonItem = .init(
+            image: .init(systemName: "gearshape.circle.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(openSettings)
+        )
+        navigationItem.leftBarButtonItem = .init(
+            image: .init(systemName: "magnifyingglass"),
+            style: .plain,
+            target: self,
+            action: #selector(openSearch)
+        )
+    }
+    
+    @objc
+    func openSettings() {
+        goTo(UIViewController(), with: "Настройки")
+    }
+    
+    @objc func openSearch() {
+        goTo(UIViewController(), with: "Поиск")
     }
     
 }
@@ -90,7 +116,7 @@ extension MainViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,7 +130,8 @@ extension MainViewController {
                 }
                 var number: Int = 0
                 containers.containers.forEach({ item in
-                    number += item.expiredProducts.count
+//                    number += item.expiredProducts.count
+                    number += item.expiringProducts.count
                 })
                 cell.getRotts(number)
                 return cell
@@ -123,8 +150,13 @@ extension MainViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
             case 0:
-                let vc = UIViewController()
-                goTo(vc, with: "Просрочка")
+                let expiringVC = ExpiringProductsViewController()
+                let expProducts = containers.getExpProds().sorted {
+                    $0.expDate <= $1.expDate
+                }
+                let expContainer = Storage(name: "Просрочка", image: nil, products: expProducts)
+                expiringVC.container = expContainer
+                navigationController?.pushViewController(expiringVC, animated: true)
             default:
                 let detailVC = ContainerViewController()
                 detailVC.container = containers.containers[indexPath.row]

@@ -9,6 +9,8 @@ import UIKit
 
 public typealias MeasureUnit = (full: String?, short: String?)
 
+public let threeDays = 3.0 * 86440
+
 struct ContainerList {
     
     static var defaultItem = ContainerList(items: Array.init(repeating: .defaultContainer, count: 5))
@@ -21,11 +23,35 @@ struct ContainerList {
         }
         return hasExpProds
     }
+    var filteredProducts: [Product] = []  // TO-DO
     
     init(items: [Storage]) {
         self.containers = items
     }
+    
+    func getExpProds() -> [Product] {
+        var products: [Product] = []
+        containers.forEach {
+            products.append(contentsOf: $0.expiredProducts)
+            products.append(contentsOf: $0.expiringProducts)
+        }
+        return products
+    }
+    
+    static func randomItem() -> ContainerList {
+        let num = Int.random(in: 2...7)
+        var items: [Storage] {
+            var items = [Storage]()
+            for _ in 0...num {
+                items.append(.randomContainer())
+            }
+            return items
+        }
+        return ContainerList(items: items)
+    }
 }
+
+// MARK: -Storage (Container)
 
 struct Storage {
     static var defaultContainer: Storage = .init(
@@ -33,6 +59,8 @@ struct Storage {
         image: UIImage(named: "fridge"),
         products: [.defaultProduct, .tomato, .water, .pasta, .cake]
     )
+    
+    static var counter = 0
     
     var name: String
     var image: UIImage?
@@ -47,10 +75,18 @@ struct Storage {
     var expiredProducts: [Product] {
         var result: [Product] = []
         products.forEach { product in
-            if let date = product.expDate {
-                if date.distance(to: Date.now) > 0 {
-                    result.append(product)
-                }
+            if product.expDate < Date.now {
+                result.append(product)
+            }
+        }
+        return result
+    }
+    
+    var expiringProducts: [Product] {
+        var result: [Product] = []
+        products.forEach { product in
+            if product.expDate < Date.now.advanced(by: threeDays) && product.expDate > Date.now {
+                result.append(product)
             }
         }
         return result
@@ -59,18 +95,40 @@ struct Storage {
     init(name: String, image: UIImage?, products: [Product]) {
         self.name = name
         self.image = image
-        self.products = products
+        self.products = products.sorted(by: {
+            $0.expDate > $1.expDate
+        })
         self.sortedProducts = self.products
+        Storage.counter += 1
+    }
+    
+    static func randomContainer() -> Storage {
+        var products: [Product] {
+            var products = [Product]()
+            for _ in 0...Int.random(in: 3...8) {
+                products.append(.randomProduct())
+            }
+            return products
+        }
+        return Storage(name: "Container #\(Storage.counter + 1)", image: UIImage(named: "fridge"), products: products)
     }
 }
+
+
+
+// MARK: -Product
 
 struct Product {
     
     var name: String
-    var expDate: Date?
+    var expDate: Date
     var quantity: Double
     var image: UIImage?
     var measureUnit: MeasureUnit
+    var color: UIColor
+    var qtyStr: String {
+        NSString(format:"%.3f", self.quantity).standardizingPath
+    }
     
     init(name: String, expDate: Date, quantity: Double, image: UIImage?, measureUnit: MeasureUnit) {
         self.name = name
@@ -78,6 +136,7 @@ struct Product {
         self.image = image
         self.measureUnit = measureUnit
         self.expDate = expDate
+        self.color = .randomColor()
     }
 }
 
@@ -117,6 +176,36 @@ extension Product {
         image: .init(systemName: "die.face.4"),
         measureUnit: ("граммов", "гр")
     )
+    
+    static func randomProduct() -> Product {
+        
+        var name: String = ""
+        let letters = "qwertyuiopasdfghjklzxcvbnm"
+        let stringLength = Int.random(in: 3...10)
+        
+        for _ in 0 ..< stringLength {
+            let num  = Int.random(in: 0 ..< "qwertyuiopasdfghjklzxcvbnm".count)
+            let char = letters[letters.index(letters.startIndex, offsetBy: num)]
+            name.append(char)
+        }
+        
+        let date: (day: Int, month: Int, year: Int) = (
+            Int.random(in: 1...28),
+            6,//Int.random(in: 1...12),
+            2024// Int.random(in: 2022...2027))
+        )
+        
+        let image = UIImage.init(systemName: "die.face.\(Int.random(in: 1...6))")
+        
+        let product: Product = .init(
+            name: name,
+            expDate: .shortDate(day: date.day, month: date.month, year: date.year),
+            quantity: Double.random(in: 0.1...3.0),
+            image: image,
+            measureUnit: MeasureUnitStorage.shared.units.randomElement()!
+        )
+        return product
+    }
 }
 
 class MeasureUnitStorage {
