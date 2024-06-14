@@ -74,6 +74,7 @@ extension UIViewController {
        
         vc.view.addSubview(label)
         vc.view.layoutSubviews()
+        vc.navigationItem.title = text
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -149,6 +150,13 @@ extension UIView {
     func setBorder(width: CGFloat = 1.0, color: UIColor) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
+    }
+    
+    func setShadow(color: UIColor) {
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = 1.0
+        layer.shadowOffset = .init(width: 2.0, height: 2.0)
+        layer.shadowOpacity = 0.5
     }
 }
 

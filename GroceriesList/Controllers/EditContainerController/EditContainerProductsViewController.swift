@@ -40,10 +40,11 @@ final class EditContainerProductsViewController: UIViewController, UITableViewDa
 
 private extension EditContainerProductsViewController {
     @objc private func addNewProduct() {
-        let newProduct = Product.defaultProduct
+        let newProduct = Product.randomProduct()
         let newIndex = IndexPath(row: container.products.count, section: 0)
         container.products.append(newProduct)
         tableView.insertRows(at: [newIndex], with: .fade)
+        tableView.scrollToRow(at: newIndex, at: .bottom, animated: true)
     }
     
     func configureTableView() {

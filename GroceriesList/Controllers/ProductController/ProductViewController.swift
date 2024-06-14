@@ -14,7 +14,7 @@ final class ProductViewController: UIViewController {
     @IBOutlet private weak var quantityLabel: UILabel!
     @IBOutlet private weak var expDateLabel: UILabel!
     
-    var product: Product = .init(name: "Жопа", expDate: .shortDate(day: 19, month: 7, year: 2029), quantity: 1.5, image: UIImage(systemName: "pencil"), measureUnit: ("плн", "полная"))
+    var product: Product = .randomProduct()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +31,12 @@ final class ProductViewController: UIViewController {
         }
         nameLabel.text = product.name
         
-        quantityLabel.attributedText = String.makeAttrLabelText("Количество: ", postfix: "\(product.quantity) \(product.measureUnit.full!)")
+        quantityLabel.attributedText = String.makeAttrLabelText("Количество: ", postfix: product.qtyStr + " \(product.measureUnit.full!)")
         
-        expDateLabel.attributedText = String.makeAttrLabelText("Срок годности: ", postfix: "\(product.expDate?.formatted(date: .numeric, time: .omitted) ?? Date.now.formatted(date: .numeric, time: .omitted))")
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yy"
+        
+        expDateLabel.attributedText = String.makeAttrLabelText("Срок годности: ", postfix: formatter.string(from: product.expDate))
     }
 
     func setProduct(product: Product?) {

@@ -30,8 +30,12 @@
                         <constraint firstAttribute="height" constant="60" id="shS-V9-lHv"/>
                     </constraints>
                     <color key="tintColor" red="0.35783565044403076" green="0.53934377431869507" blue="0.66034197807312012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                    <connections>
+                        <action selector="addButtonPressed:" destination="-1" eventType="touchUpInside" id="32H-T4-Ybb"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="BHS-JK-wFy"/>
