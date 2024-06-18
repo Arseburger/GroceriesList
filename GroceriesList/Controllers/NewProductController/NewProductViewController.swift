@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class NewProductViewController: UIViewController, UINavigationControllerDelegate {
+final class NewProductViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: @IBOutlets -
     

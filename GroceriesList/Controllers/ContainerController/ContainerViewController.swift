@@ -9,7 +9,10 @@ import UIKit
 
 final class ContainerViewController: UIViewController {
 
-    var container: Storage = .init(name: "baza", image: nil, products: [])
+    typealias ItemCell = CollectionView.Cells.detailIemCell
+    typealias AddItemCell = CollectionView.Cells.newItemCell
+    
+    var container: Storage = .defaultContainer(false)
     
     var updateContainer: (Storage) -> Void = { _ in }
     
@@ -95,19 +98,13 @@ private extension ContainerViewController {
     func setupCollectionView() {
         
         collectionView.register(
-            UINib(
-                nibName: "DetailItemCollectionViewCell",
-                bundle: .main
-            ),
-            forCellWithReuseIdentifier: "productCell"
+            ItemCell.nib,
+            forCellWithReuseIdentifier: ItemCell.identifier
         )
         
         collectionView.register(
-            UINib(
-                nibName: "AddNewItemCollectionViewCell",
-                bundle: .main
-            ),
-            forCellWithReuseIdentifier: "newProductCell"
+            AddItemCell.nib,
+            forCellWithReuseIdentifier: AddItemCell.identifier
         )
         
         collectionView.delegate = self
@@ -155,14 +152,14 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.item < container.products.count {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as? DetailItemCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.identifier, for: indexPath) as? DetailItemCollectionViewCell else {
                 return UICollectionViewCell()
             }
             let item = container.sortedProducts[indexPath.item]
             cell.configure(with: item)
             return cell
         } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newProductCell", for: indexPath) as? AddNewItemCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddItemCell.identifier, for: indexPath) as? AddNewItemCollectionViewCell else {
                 return UICollectionViewCell()
             }
             return cell

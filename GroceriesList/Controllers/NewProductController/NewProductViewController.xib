@@ -34,7 +34,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="83N-fP-SB4">
-                                    <rect key="frame" x="32" y="422" width="350" height="40"/>
+                                    <rect key="frame" x="16" y="422" width="382" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="7GA-1p-6o6"/>
                                     </constraints>
@@ -48,7 +48,7 @@
                                     </constraints>
                                 </datePicker>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Wq-XY-mHH">
-                                    <rect key="frame" x="32" y="474" width="350" height="40"/>
+                                    <rect key="frame" x="16" y="474" width="382" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Ywp-09-QMS"/>
                                     </constraints>
@@ -56,7 +56,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Z1-Lq-mID">
-                                    <rect key="frame" x="32" y="694" width="350" height="60"/>
+                                    <rect key="frame" x="16" y="694" width="382" height="60"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="jwR-Co-P3z"/>
                                     </constraints>
@@ -76,13 +76,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJF-r7-0c3">
-                                    <rect key="frame" x="84.5" y="530" width="42" height="24"/>
+                                    <rect key="frame" x="88.5" y="530" width="42" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oge-qb-qXE">
-                                    <rect key="frame" x="8" y="558" width="195" height="120"/>
+                                    <rect key="frame" x="8" y="558" width="203" height="120"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="LoK-M3-CEb"/>
                                     </constraints>
@@ -99,23 +99,23 @@
                                 <constraint firstItem="4Z1-Lq-mID" firstAttribute="top" secondItem="Oge-qb-qXE" secondAttribute="bottom" constant="16" id="1Ik-jg-Iak"/>
                                 <constraint firstItem="ZHX-ZC-6G1" firstAttribute="top" secondItem="ycr-ba-5yS" secondAttribute="bottom" constant="4" id="27M-Ga-vgS"/>
                                 <constraint firstItem="ZHX-ZC-6G1" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="centerX" constant="4" id="526-ch-8Rb"/>
-                                <constraint firstAttribute="trailing" secondItem="83N-fP-SB4" secondAttribute="trailing" constant="32" id="75n-Y8-lzj"/>
+                                <constraint firstAttribute="trailing" secondItem="83N-fP-SB4" secondAttribute="trailing" constant="16" id="75n-Y8-lzj"/>
                                 <constraint firstItem="ZHX-ZC-6G1" firstAttribute="centerY" secondItem="Oge-qb-qXE" secondAttribute="centerY" id="EAk-VW-mkh"/>
-                                <constraint firstAttribute="centerX" secondItem="Oge-qb-qXE" secondAttribute="trailing" constant="4" id="FvK-j2-FRh"/>
+                                <constraint firstAttribute="centerX" secondItem="Oge-qb-qXE" secondAttribute="trailing" constant="-4" id="FvK-j2-FRh"/>
                                 <constraint firstAttribute="bottom" secondItem="4Z1-Lq-mID" secondAttribute="bottom" constant="16" id="OHn-L2-AMn"/>
-                                <constraint firstItem="3Wq-XY-mHH" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="32" id="Otw-Ny-Bz9"/>
-                                <constraint firstItem="83N-fP-SB4" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="32" id="P5a-D6-nlS"/>
+                                <constraint firstItem="3Wq-XY-mHH" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="16" id="Otw-Ny-Bz9"/>
+                                <constraint firstItem="83N-fP-SB4" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="16" id="P5a-D6-nlS"/>
                                 <constraint firstItem="ycr-ba-5yS" firstAttribute="height" secondItem="sJF-r7-0c3" secondAttribute="height" id="PM1-7r-3Iz"/>
                                 <constraint firstItem="ycr-ba-5yS" firstAttribute="centerX" secondItem="ZHX-ZC-6G1" secondAttribute="centerX" id="Q8G-H4-290"/>
                                 <constraint firstAttribute="trailing" secondItem="Nw9-2f-NCa" secondAttribute="trailing" constant="16" id="Qxp-K7-Vli"/>
                                 <constraint firstItem="ycr-ba-5yS" firstAttribute="top" secondItem="3Wq-XY-mHH" secondAttribute="bottom" constant="16" id="RWe-dU-Rgn"/>
                                 <constraint firstItem="Nw9-2f-NCa" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="16" id="T1r-9l-4vw"/>
-                                <constraint firstItem="4Z1-Lq-mID" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="32" id="YUe-gx-kd5"/>
+                                <constraint firstItem="4Z1-Lq-mID" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="16" id="YUe-gx-kd5"/>
                                 <constraint firstItem="3Wq-XY-mHH" firstAttribute="top" secondItem="83N-fP-SB4" secondAttribute="bottom" constant="12" id="Z50-L6-RXf"/>
                                 <constraint firstItem="Oge-qb-qXE" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="8" id="ZcP-fH-APU"/>
-                                <constraint firstAttribute="trailing" secondItem="3Wq-XY-mHH" secondAttribute="trailing" constant="32" id="cb9-7J-8l9"/>
+                                <constraint firstAttribute="trailing" secondItem="3Wq-XY-mHH" secondAttribute="trailing" constant="16" id="cb9-7J-8l9"/>
                                 <constraint firstItem="ycr-ba-5yS" firstAttribute="centerY" secondItem="sJF-r7-0c3" secondAttribute="centerY" id="gNt-w6-D2l"/>
-                                <constraint firstAttribute="trailing" secondItem="4Z1-Lq-mID" secondAttribute="trailing" constant="32" id="h08-3j-bNS"/>
+                                <constraint firstAttribute="trailing" secondItem="4Z1-Lq-mID" secondAttribute="trailing" constant="16" id="h08-3j-bNS"/>
                                 <constraint firstItem="Nw9-2f-NCa" firstAttribute="top" secondItem="7IC-0a-iPZ" secondAttribute="top" constant="16" id="hBb-Ji-g02"/>
                                 <constraint firstItem="83N-fP-SB4" firstAttribute="top" secondItem="Nw9-2f-NCa" secondAttribute="bottom" constant="24" id="k2i-gV-vbR"/>
                                 <constraint firstAttribute="trailing" secondItem="ZHX-ZC-6G1" secondAttribute="trailing" constant="8" id="omY-z7-2Qr"/>
