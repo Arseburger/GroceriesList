@@ -17,12 +17,13 @@ struct Product {
     var quantity: Double
     var image: UIImage?
     var measureUnit: MeasureUnit
+    var containerId: UInt8? = 10
     var color: UIColor
     var qtyStr: String {
         NSString(format:"%.3f", self.quantity).standardizingPath
     }
     
-    init(name: String, expDate: Date, quantity: Double, image: UIImage?, measureUnit: MeasureUnit) {
+    init(name: String, expDate: Date, quantity: Double, image: UIImage?, measureUnit: MeasureUnit, containerId: UInt8? = 0) {
         Product.ids += 1
         self.name = name
         self.quantity = quantity
@@ -30,8 +31,17 @@ struct Product {
         self.measureUnit = measureUnit
         self.expDate = expDate
         self.color = .randomColor()
+        self.containerId = containerId
         self.id = Product.ids
     }
+    
+    mutating func attachContainer(with id: UInt8) -> Product {
+        var copy = self
+        copy.containerId = id
+        return copy
+//        return .init(name: self.name, expDate: self.expDate, quantity: self.quantity, image: self.image, measureUnit: self.measureUnit, containerId: id)
+    }
+    
 }
 
 extension Array where Element == Product {
@@ -87,7 +97,8 @@ extension Product {
             expDate: .shortDate(day: date.day, month: date.month, year: date.year),
             quantity: Double.random(in: 0.1...3.0),
             image: image,
-            measureUnit: MeasureUnitStorage.shared.units.randomElement()!
+            measureUnit: MeasureUnitStorage.shared.units.randomElement()!,
+            containerId: containerId
         )
         return product
     }

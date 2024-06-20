@@ -72,7 +72,9 @@ struct Storage {
         var products: [Product] {
             var products = [Product]()
             for _ in 0...Int.random(in: 3...8) {
-                products.append(.randomProduct())
+                var prod = Product.randomProduct()
+                prod = prod.attachContainer(with: self.ids + 1)
+                products.append(prod)
             }
             return products
         }

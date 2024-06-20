@@ -167,7 +167,6 @@ extension MainViewController {
             default:
                 let detailVC = ContainerViewController()
                 detailVC.container = containers.containers[indexPath.row]
-                print(containers.containers[indexPath.row].id)
                 detailVC.updateContainer = { [weak self] container in
                     guard let self = self else { return }
                     self.containers.containers[indexPath.row] = container

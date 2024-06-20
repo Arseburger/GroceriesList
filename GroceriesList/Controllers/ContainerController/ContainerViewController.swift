@@ -176,9 +176,13 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
             navigationController?.pushViewController(productVC, animated: true)
         } else {
             let vc = NewProductViewController()
+            vc.containerId = self.container.id
             vc.addNewProduct = { [weak self] product in
                 guard let self = self else { return }
                 self.container.products.append(product)
+                self.container.products.sort(by: {
+                    $0.expDate > $1.expDate
+                })
                 self.collectionView.insertItems(at: [IndexPath(item: self.container.products.count - 1, section: 0)])
                 self.collectionView.reloadData()
                 

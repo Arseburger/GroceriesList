@@ -76,13 +76,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJF-r7-0c3">
-                                    <rect key="frame" x="88.5" y="530" width="42" height="24"/>
+                                    <rect key="frame" x="84.5" y="530" width="42" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oge-qb-qXE">
-                                    <rect key="frame" x="8" y="558" width="203" height="120"/>
+                                    <rect key="frame" x="8" y="558" width="195" height="120"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="120" id="LoK-M3-CEb"/>
                                     </constraints>
@@ -101,7 +101,7 @@
                                 <constraint firstItem="ZHX-ZC-6G1" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="centerX" constant="4" id="526-ch-8Rb"/>
                                 <constraint firstAttribute="trailing" secondItem="83N-fP-SB4" secondAttribute="trailing" constant="16" id="75n-Y8-lzj"/>
                                 <constraint firstItem="ZHX-ZC-6G1" firstAttribute="centerY" secondItem="Oge-qb-qXE" secondAttribute="centerY" id="EAk-VW-mkh"/>
-                                <constraint firstAttribute="centerX" secondItem="Oge-qb-qXE" secondAttribute="trailing" constant="-4" id="FvK-j2-FRh"/>
+                                <constraint firstAttribute="centerX" secondItem="Oge-qb-qXE" secondAttribute="trailing" constant="4" id="FvK-j2-FRh"/>
                                 <constraint firstAttribute="bottom" secondItem="4Z1-Lq-mID" secondAttribute="bottom" constant="16" id="OHn-L2-AMn"/>
                                 <constraint firstItem="3Wq-XY-mHH" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="16" id="Otw-Ny-Bz9"/>
                                 <constraint firstItem="83N-fP-SB4" firstAttribute="leading" secondItem="7IC-0a-iPZ" secondAttribute="leading" constant="16" id="P5a-D6-nlS"/>

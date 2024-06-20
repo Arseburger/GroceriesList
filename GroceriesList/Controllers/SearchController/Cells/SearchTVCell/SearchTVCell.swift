@@ -21,7 +21,7 @@ class SearchTVCell: UITableViewCell {
     
     func configure(with item: Product) {
         nameLabel.text = item.name
-        infoLabel.text = "\(item.id)"
+        infoLabel.text = "\(item.id) in \(item.containerId!)"
     }
     
     func animate(duration: TimeInterval) {
