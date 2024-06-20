@@ -9,9 +9,11 @@ import UIKit
 
 final class EditContainerProductsViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
+    typealias Cell = TableView.Cells.editContainerCell
+    
     @IBOutlet private weak var tableView: UITableView!
     
-    var container: Storage = .defaultContainer
+    var container: Storage = .defaultContainer(false)
     var didUpdateProducts: ([Product]) -> Void = { _ in }
     
     override func viewDidLoad() {
@@ -48,7 +50,7 @@ private extension EditContainerProductsViewController {
     }
     
     func configureTableView() {
-        tableView.register(UINib(nibName: "EditContainerProdsTVCell", bundle: .main), forCellReuseIdentifier: "editProductsCell")
+        tableView.register(Cell.nib, forCellReuseIdentifier: Cell.identifier)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -72,7 +74,7 @@ extension EditContainerProductsViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "editProductsCell", for: indexPath) as? EditContainerProdsTVCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifier, for: indexPath) as? EditContainerProdsTVCell else {
                 return UITableViewCell()
             }
             

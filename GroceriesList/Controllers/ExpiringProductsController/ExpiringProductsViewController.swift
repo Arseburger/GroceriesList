@@ -7,11 +7,13 @@
 
 import UIKit
 
-class ExpiringProductsViewController: UIViewController {
+final class ExpiringProductsViewController: UIViewController {
+    
+    typealias Cell = TableView.Cells.expiredProdCell
     
     @IBOutlet private weak var tableView: UITableView!
     
-    var container: Storage = .defaultContainer {
+    var container: Storage = .defaultContainer(false) {
         didSet {
             Storage.counter -= 1
         }
@@ -20,7 +22,6 @@ class ExpiringProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        print(container.expiringProducts.count, container.expiredProducts.count)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +35,7 @@ private extension ExpiringProductsViewController {
 
     func configureTableView() {
         
-        tableView.register(UINib(nibName: "ExpiredProductTVCell", bundle: .main), forCellReuseIdentifier: "expiredProductCell")
+        tableView.register(Cell.nib, forCellReuseIdentifier: Cell.identifier)
         
         tableView.dataSource = self
         tableView.delegate = self

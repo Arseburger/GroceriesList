@@ -25,6 +25,7 @@ class ExpiredProductTVCell: UITableViewCell {
         bottomView.layer.cornerRadius = bottomView.frame.width * 0.05
         bottomView.backgroundColor = .systemGray6
         bottomView.setBorder(color: .systemGray3)
+        productImageView.layer.cornerRadius = productImageView.frame.height * 0.125
     }
 
     func configure() {

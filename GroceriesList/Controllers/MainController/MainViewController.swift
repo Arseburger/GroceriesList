@@ -9,6 +9,9 @@ import UIKit
 
 final class MainViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
+    typealias ContainerCell = TableView.Cells.containerCell
+    typealias ExpiringCell = TableView.Cells.expiringProdsCell
+    
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var addContainerButton: UIButton!
     
@@ -34,6 +37,7 @@ final class MainViewController: UIViewController, UITableViewDataSource,UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        Storage.counter = containers.containers.count
     }
     
 }
@@ -43,19 +47,13 @@ private extension MainViewController {
     func configureTableView() {
         
         tableView.register(
-            UINib(
-                nibName: "ContainerTVCell",
-                bundle: .main
-            ),
-            forCellReuseIdentifier: "containerTVCell"
+            ContainerCell.nib,
+            forCellReuseIdentifier: ContainerCell.identifier
         )
         
         tableView.register(
-            UINib(
-                nibName: "ExpiringProductsTVCell",
-                bundle: .main
-            ),
-            forCellReuseIdentifier: "expiredTVCell"
+            ExpiringCell.nib,
+            forCellReuseIdentifier: ExpiringCell.identifier
         )
         
         tableView.dataSource = self
@@ -99,8 +97,17 @@ private extension MainViewController {
         goTo(UIViewController(), with: "Настройки")
     }
     
-    @objc func openSearch() {
-        goTo(UIViewController(), with: "Поиск")
+    @objc
+    func openSearch() {
+        let searchVC = SearchViewController()
+        
+        var prods = [Product]()
+        containers.containers.forEach {
+            prods.append(contentsOf: $0.products)
+        }
+        
+        searchVC.container = .init(name: "SearchContainer", image: nil, products: prods, shoulGetNewId: false)
+        navigationController?.pushViewController(searchVC, animated: true)
     }
     
 }
@@ -123,7 +130,7 @@ extension MainViewController {
         switch indexPath.section {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "expiredTVCell",
+                    withIdentifier: ExpiringCell.identifier,
                     for: indexPath
                 ) as? ExpiringProductsTVCell else {
                     return UITableViewCell()
@@ -137,7 +144,7 @@ extension MainViewController {
                 return cell
             default:
                 guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "containerTVCell",
+                    withIdentifier: ContainerCell.identifier,
                     for: indexPath
                 ) as? ContainerTVCell else {
                     return UITableViewCell()
@@ -154,7 +161,7 @@ extension MainViewController {
                 let expProducts = containers.getExpProds().sorted {
                     $0.expDate <= $1.expDate
                 }
-                let expContainer = Storage(name: "Просрочка", image: nil, products: expProducts)
+                let expContainer = Storage(name: "Просрочка", image: nil, products: expProducts, shoulGetNewId: false)
                 expiringVC.container = expContainer
                 navigationController?.pushViewController(expiringVC, animated: true)
             default:
@@ -164,6 +171,7 @@ extension MainViewController {
                     guard let self = self else { return }
                     self.containers.containers[indexPath.row] = container
                     self.tableView.reloadData()
+                    Storage.counter = self.containers.containers.count
                 }
                 navigationController?.pushViewController(detailVC, animated: true)
         }

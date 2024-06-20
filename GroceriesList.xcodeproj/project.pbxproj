@@ -14,9 +14,13 @@
 		A82DE0EE2BA9D18E0000DAA4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0ED2BA9D18E0000DAA4 /* MainViewController.swift */; };
 		A82DE0F02BA9D1A50000DAA4 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DE0EF2BA9D1A50000DAA4 /* MainViewController.xib */; };
 		A82DE0F32BA9D1F20000DAA4 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F22BA9D1F20000DAA4 /* MainModel.swift */; };
-		A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */; };
+		A82DE0F52BA9D1FD0000DAA4 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F42BA9D1FD0000DAA4 /* StorageModel.swift */; };
 		A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */; };
 		A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */; };
+		A84A2A342C1D15A000D799E3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A2A322C1D15A000D799E3 /* SearchViewController.swift */; };
+		A84A2A352C1D15A000D799E3 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A84A2A332C1D15A000D799E3 /* SearchViewController.xib */; };
+		A84A2A3A2C1D1C4900D799E3 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A2A382C1D1C4900D799E3 /* SearchTVCell.swift */; };
+		A84A2A3B2C1D1C4900D799E3 /* SearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A84A2A392C1D1C4900D799E3 /* SearchTVCell.xib */; };
 		A869F2222C17751A00E55C87 /* ExpiringProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */; };
 		A869F2232C17751A00E55C87 /* ExpiringProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */; };
 		A869F2272C17773300E55C87 /* ExpiredProductTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A869F2252C17773300E55C87 /* ExpiredProductTVCell.swift */; };
@@ -28,6 +32,10 @@
 		A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538F72BB0A12E00A3E8DA /* Extensions.swift */; };
 		A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */; };
 		A8B538FF2BB0B72800A3E8DA /* ContainerTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */; };
+		A8D3E7292C219BD500356A5E /* NothingFoundTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D3E7272C219BD500356A5E /* NothingFoundTVCell.swift */; };
+		A8D3E72A2C219BD500356A5E /* NothingFoundTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8D3E7282C219BD500356A5E /* NothingFoundTVCell.xib */; };
+		A8D3E72C2C21BB2C00356A5E /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D3E72B2C21BB2C00356A5E /* Cells.swift */; };
+		A8D3E72E2C21D15600356A5E /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D3E72D2C21D15600356A5E /* ProductModel.swift */; };
 		A8DD07E62C04F0010022CC3F /* EditContainerProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD07E42C04F0010022CC3F /* EditContainerProductsViewController.swift */; };
 		A8DD07E72C04F0010022CC3F /* EditContainerProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DD07E52C04F0010022CC3F /* EditContainerProductsViewController.xib */; };
 		A8DD07EC2C04F0880022CC3F /* EditContainerProdsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD07EA2C04F0880022CC3F /* EditContainerProdsTVCell.swift */; };
@@ -50,9 +58,13 @@
 		A82DE0ED2BA9D18E0000DAA4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A82DE0EF2BA9D1A50000DAA4 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		A82DE0F22BA9D1F20000DAA4 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
-		A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		A82DE0F42BA9D1FD0000DAA4 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 		A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
+		A84A2A322C1D15A000D799E3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A84A2A332C1D15A000D799E3 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		A84A2A382C1D1C4900D799E3 /* SearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
+		A84A2A392C1D1C4900D799E3 /* SearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTVCell.xib; sourceTree = "<group>"; };
 		A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringProductsViewController.swift; sourceTree = "<group>"; };
 		A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiringProductsViewController.xib; sourceTree = "<group>"; };
 		A869F2252C17773300E55C87 /* ExpiredProductTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredProductTVCell.swift; sourceTree = "<group>"; };
@@ -64,6 +76,10 @@
 		A8B538F72BB0A12E00A3E8DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTVCell.swift; sourceTree = "<group>"; };
 		A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerTVCell.xib; sourceTree = "<group>"; };
+		A8D3E7272C219BD500356A5E /* NothingFoundTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingFoundTVCell.swift; sourceTree = "<group>"; };
+		A8D3E7282C219BD500356A5E /* NothingFoundTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingFoundTVCell.xib; sourceTree = "<group>"; };
+		A8D3E72B2C21BB2C00356A5E /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		A8D3E72D2C21D15600356A5E /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		A8DD07E42C04F0010022CC3F /* EditContainerProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerProductsViewController.swift; sourceTree = "<group>"; };
 		A8DD07E52C04F0010022CC3F /* EditContainerProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditContainerProductsViewController.xib; sourceTree = "<group>"; };
 		A8DD07EA2C04F0880022CC3F /* EditContainerProdsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerProdsTVCell.swift; sourceTree = "<group>"; };
@@ -108,7 +124,6 @@
 			children = (
 				A884D3822BB1828E0046BD4B /* Application */,
 				A8E5680F2BADCFA30018D78C /* Controllers */,
-				A8E5680E2BADCF740018D78C /* Views */,
 				A82DE0F12BA9D1D50000DAA4 /* Models */,
 				A82DE0EA2BA9D1160000DAA4 /* Resources */,
 			);
@@ -118,6 +133,7 @@
 		A82DE0E92BA9D10F0000DAA4 /* MainController */ = {
 			isa = PBXGroup;
 			children = (
+				A84A2A2D2C1D149D00D799E3 /* Cells */,
 				A82DE0ED2BA9D18E0000DAA4 /* MainViewController.swift */,
 				A82DE0EF2BA9D1A50000DAA4 /* MainViewController.xib */,
 			);
@@ -136,6 +152,7 @@
 		A82DE0EB2BA9D1470000DAA4 /* ContainerController */ = {
 			isa = PBXGroup;
 			children = (
+				A84A2A2C2C1D148A00D799E3 /* Cells */,
 				A82DE0F62BA9D22F0000DAA4 /* ContainerViewController.swift */,
 				A82DE0F72BA9D22F0000DAA4 /* ContainerViewController.xib */,
 			);
@@ -146,28 +163,93 @@
 			isa = PBXGroup;
 			children = (
 				A82DE0F22BA9D1F20000DAA4 /* MainModel.swift */,
-				A82DE0F42BA9D1FD0000DAA4 /* ItemModel.swift */,
+				A82DE0F42BA9D1FD0000DAA4 /* StorageModel.swift */,
+				A8D3E72D2C21D15600356A5E /* ProductModel.swift */,
+				A8D3E72B2C21BB2C00356A5E /* Cells.swift */,
 				A82DE0DB2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A869F21F2C1774EA00E55C87 /* ExpiringProductsController */ = {
+		A84A2A2C2C1D148A00D799E3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */,
-				A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */,
+				A8F899C42C00DD0C00EAA771 /* AddNewItemCVCell */,
+				A8F899BF2C00CD2600EAA771 /* DetailItemCVCell */,
 			);
-			path = ExpiringProductsController;
+			path = Cells;
 			sourceTree = "<group>";
 		};
-		A869F2242C1776E600E55C87 /* ExpProdsVC */ = {
+		A84A2A2D2C1D149D00D799E3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A8AC05052BB3003B0068C377 /* ExpiringTVCell */,
+				A8B538FB2BB0B6D100A3E8DA /* ContainerTVCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A84A2A2E2C1D14B900D799E3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A84A2A2F2C1D14C800D799E3 /* ExpiredProductTVCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A84A2A2F2C1D14C800D799E3 /* ExpiredProductTVCell */ = {
 			isa = PBXGroup;
 			children = (
 				A869F2252C17773300E55C87 /* ExpiredProductTVCell.swift */,
 				A869F2262C17773300E55C87 /* ExpiredProductTVCell.xib */,
 			);
-			path = ExpProdsVC;
+			path = ExpiredProductTVCell;
+			sourceTree = "<group>";
+		};
+		A84A2A302C1D154100D799E3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A8DD07EE2C04F0B00022CC3F /* EditProductsTVCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A84A2A312C1D157F00D799E3 /* SearchController */ = {
+			isa = PBXGroup;
+			children = (
+				A84A2A362C1D1A5200D799E3 /* Cells */,
+				A84A2A322C1D15A000D799E3 /* SearchViewController.swift */,
+				A84A2A332C1D15A000D799E3 /* SearchViewController.xib */,
+			);
+			path = SearchController;
+			sourceTree = "<group>";
+		};
+		A84A2A362C1D1A5200D799E3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A8D3E7262C219B9C00356A5E /* NothingFoundTVCell */,
+				A84A2A372C1D1C2500D799E3 /* SearchTVCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A84A2A372C1D1C2500D799E3 /* SearchTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				A84A2A382C1D1C4900D799E3 /* SearchTVCell.swift */,
+				A84A2A392C1D1C4900D799E3 /* SearchTVCell.xib */,
+			);
+			path = SearchTVCell;
+			sourceTree = "<group>";
+		};
+		A869F21F2C1774EA00E55C87 /* ExpiringProductsController */ = {
+			isa = PBXGroup;
+			children = (
+				A84A2A2E2C1D14B900D799E3 /* Cells */,
+				A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */,
+				A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */,
+			);
+			path = ExpiringProductsController;
 			sourceTree = "<group>";
 		};
 		A8796F8B2C1390A20011991B /* NewProductController */ = {
@@ -189,70 +271,56 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		A8AC05052BB3003B0068C377 /* ExpiringCell */ = {
+		A8AC05052BB3003B0068C377 /* ExpiringTVCell */ = {
 			isa = PBXGroup;
 			children = (
 				A8AC05062BB3005C0068C377 /* ExpiringProductsTVCell.swift */,
 				A8AC05072BB3005C0068C377 /* ExpiringProductsTVCell.xib */,
 			);
-			path = ExpiringCell;
+			path = ExpiringTVCell;
 			sourceTree = "<group>";
 		};
-		A8B538FB2BB0B6D100A3E8DA /* ContainerCell */ = {
+		A8B538FB2BB0B6D100A3E8DA /* ContainerTVCell */ = {
 			isa = PBXGroup;
 			children = (
 				A8B538FC2BB0B72800A3E8DA /* ContainerTVCell.swift */,
 				A8B538FD2BB0B72800A3E8DA /* ContainerTVCell.xib */,
 			);
-			path = ContainerCell;
+			path = ContainerTVCell;
+			sourceTree = "<group>";
+		};
+		A8D3E7262C219B9C00356A5E /* NothingFoundTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8D3E7272C219BD500356A5E /* NothingFoundTVCell.swift */,
+				A8D3E7282C219BD500356A5E /* NothingFoundTVCell.xib */,
+			);
+			path = NothingFoundTVCell;
 			sourceTree = "<group>";
 		};
 		A8DD07E32C04EF870022CC3F /* EditContainerController */ = {
 			isa = PBXGroup;
 			children = (
+				A84A2A302C1D154100D799E3 /* Cells */,
 				A8DD07E42C04F0010022CC3F /* EditContainerProductsViewController.swift */,
 				A8DD07E52C04F0010022CC3F /* EditContainerProductsViewController.xib */,
 			);
 			path = EditContainerController;
 			sourceTree = "<group>";
 		};
-		A8DD07E82C04F0440022CC3F /* MainVC */ = {
-			isa = PBXGroup;
-			children = (
-				A8AC05052BB3003B0068C377 /* ExpiringCell */,
-				A8B538FB2BB0B6D100A3E8DA /* ContainerCell */,
-			);
-			path = MainVC;
-			sourceTree = "<group>";
-		};
-		A8DD07E92C04F04D0022CC3F /* EditProdsVC */ = {
-			isa = PBXGroup;
-			children = (
-				A8DD07EE2C04F0B00022CC3F /* EditProdsCell */,
-			);
-			path = EditProdsVC;
-			sourceTree = "<group>";
-		};
-		A8DD07EE2C04F0B00022CC3F /* EditProdsCell */ = {
+		A8DD07EE2C04F0B00022CC3F /* EditProductsTVCell */ = {
 			isa = PBXGroup;
 			children = (
 				A8DD07EA2C04F0880022CC3F /* EditContainerProdsTVCell.swift */,
 				A8DD07EB2C04F0880022CC3F /* EditContainerProdsTVCell.xib */,
 			);
-			path = EditProdsCell;
-			sourceTree = "<group>";
-		};
-		A8E5680E2BADCF740018D78C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A8E568102BADCFB80018D78C /* Cells */,
-			);
-			path = Views;
+			path = EditProductsTVCell;
 			sourceTree = "<group>";
 		};
 		A8E5680F2BADCFA30018D78C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A84A2A312C1D157F00D799E3 /* SearchController */,
 				A869F21F2C1774EA00E55C87 /* ExpiringProductsController */,
 				A8796F8B2C1390A20011991B /* NewProductController */,
 				A8DD07E32C04EF870022CC3F /* EditContainerController */,
@@ -261,34 +329,6 @@
 				A82DE0EB2BA9D1470000DAA4 /* ContainerController */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		A8E568102BADCFB80018D78C /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				A8F899BE2C00CD1B00EAA771 /* CollectionView */,
-				A8F899BD2C00CD1400EAA771 /* TableView */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		A8F899BD2C00CD1400EAA771 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				A869F2242C1776E600E55C87 /* ExpProdsVC */,
-				A8DD07E92C04F04D0022CC3F /* EditProdsVC */,
-				A8DD07E82C04F0440022CC3F /* MainVC */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
-		A8F899BE2C00CD1B00EAA771 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				A8F899C42C00DD0C00EAA771 /* AddNewItemCVCell */,
-				A8F899BF2C00CD2600EAA771 /* DetailItemCVCell */,
-			);
-			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		A8F899BF2C00CD2600EAA771 /* DetailItemCVCell */ = {
@@ -377,6 +417,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DD07E72C04F0010022CC3F /* EditContainerProductsViewController.xib in Resources */,
+				A84A2A3B2C1D1C4900D799E3 /* SearchTVCell.xib in Resources */,
+				A8D3E72A2C219BD500356A5E /* NothingFoundTVCell.xib in Resources */,
 				A82DE0E22BA9D0770000DAA4 /* LaunchScreen.storyboard in Resources */,
 				A8F899CD2C027B4900EAA771 /* ProductViewController.xib in Resources */,
 				A869F2282C17773300E55C87 /* ExpiredProductTVCell.xib in Resources */,
@@ -384,6 +426,7 @@
 				A869F2232C17751A00E55C87 /* ExpiringProductsViewController.xib in Resources */,
 				A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */,
 				A82DE0F02BA9D1A50000DAA4 /* MainViewController.xib in Resources */,
+				A84A2A352C1D15A000D799E3 /* SearchViewController.xib in Resources */,
 				A8F899C82C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib in Resources */,
 				A8B538FF2BB0B72800A3E8DA /* ContainerTVCell.xib in Resources */,
 				A82DE0F92BA9D22F0000DAA4 /* ContainerViewController.xib in Resources */,
@@ -400,20 +443,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A82DE0F52BA9D1FD0000DAA4 /* ItemModel.swift in Sources */,
+				A82DE0F52BA9D1FD0000DAA4 /* StorageModel.swift in Sources */,
+				A8D3E72C2C21BB2C00356A5E /* Cells.swift in Sources */,
 				A8DD07E62C04F0010022CC3F /* EditContainerProductsViewController.swift in Sources */,
 				A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */,
 				A8796F8E2C1390E20011991B /* NewProductViewController.swift in Sources */,
 				A8F899C22C00CD8500EAA771 /* DetailItemCollectionViewCell.swift in Sources */,
 				A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */,
+				A8D3E72E2C21D15600356A5E /* ProductModel.swift in Sources */,
 				A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */,
 				A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */,
 				A869F2222C17751A00E55C87 /* ExpiringProductsViewController.swift in Sources */,
 				A8F899CC2C027B4900EAA771 /* ProductViewController.swift in Sources */,
 				A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */,
 				A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */,
+				A84A2A342C1D15A000D799E3 /* SearchViewController.swift in Sources */,
+				A84A2A3A2C1D1C4900D799E3 /* SearchTVCell.swift in Sources */,
 				A8DD07EC2C04F0880022CC3F /* EditContainerProdsTVCell.swift in Sources */,
 				A82DE0F32BA9D1F20000DAA4 /* MainModel.swift in Sources */,
+				A8D3E7292C219BD500356A5E /* NothingFoundTVCell.swift in Sources */,
 				A82DE0EE2BA9D18E0000DAA4 /* MainViewController.swift in Sources */,
 				A869F2272C17773300E55C87 /* ExpiredProductTVCell.swift in Sources */,
 				A8AC05082BB3005C0068C377 /* ExpiringProductsTVCell.swift in Sources */,

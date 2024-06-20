@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bm6-8b-Jc9">
                         <rect key="frame" x="4" y="4" width="403" height="122"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nhy-Nl-VWa">
-                                <rect key="frame" x="16" y="8" width="106" height="106"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nhy-Nl-VWa">
+                                <rect key="frame" x="8" y="8" width="106" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nhy-Nl-VWa" secondAttribute="height" multiplier="1:1" id="kQk-oD-SUC"/>
                                 </constraints>
@@ -52,12 +52,12 @@
                             <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="nhy-Nl-VWa" secondAttribute="trailing" constant="8" id="JHP-lP-VCd"/>
                             <constraint firstItem="nhy-Nl-VWa" firstAttribute="centerY" secondItem="bm6-8b-Jc9" secondAttribute="centerY" id="McJ-b9-IQY"/>
                             <constraint firstItem="Vcu-xQ-9eD" firstAttribute="top" secondItem="nhy-Nl-VWa" secondAttribute="top" constant="8" id="OoF-Gm-bmb"/>
-                            <constraint firstItem="Vcu-xQ-9eD" firstAttribute="leading" secondItem="nhy-Nl-VWa" secondAttribute="trailing" constant="8" id="PbM-rI-IOY"/>
-                            <constraint firstAttribute="bottom" secondItem="nhy-Nl-VWa" secondAttribute="bottom" priority="750" constant="8" id="TuU-LS-hPl"/>
+                            <constraint firstItem="Vcu-xQ-9eD" firstAttribute="leading" secondItem="nhy-Nl-VWa" secondAttribute="trailing" constant="16" id="PbM-rI-IOY"/>
+                            <constraint firstAttribute="bottom" secondItem="nhy-Nl-VWa" secondAttribute="bottom" constant="8" id="TuU-LS-hPl"/>
                             <constraint firstItem="L32-Vg-MYa" firstAttribute="top" secondItem="Vcu-xQ-9eD" secondAttribute="bottom" id="UjT-84-k1E"/>
                             <constraint firstItem="L32-Vg-MYa" firstAttribute="leading" secondItem="Vcu-xQ-9eD" secondAttribute="leading" id="YzL-I4-fRx"/>
-                            <constraint firstItem="nhy-Nl-VWa" firstAttribute="top" secondItem="bm6-8b-Jc9" secondAttribute="top" priority="750" constant="8" id="uhd-Au-rsE"/>
-                            <constraint firstItem="nhy-Nl-VWa" firstAttribute="leading" secondItem="bm6-8b-Jc9" secondAttribute="leading" constant="16" id="wrH-AY-FYC"/>
+                            <constraint firstItem="nhy-Nl-VWa" firstAttribute="top" secondItem="bm6-8b-Jc9" secondAttribute="top" constant="8" id="uhd-Au-rsE"/>
+                            <constraint firstItem="nhy-Nl-VWa" firstAttribute="leading" secondItem="bm6-8b-Jc9" secondAttribute="leading" constant="8" id="wrH-AY-FYC"/>
                         </constraints>
                     </view>
                 </subviews>

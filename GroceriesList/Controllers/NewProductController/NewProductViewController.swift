@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class NewProductViewController: UIViewController, UINavigationControllerDelegate {
+final class NewProductViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: @IBOutlets -
     
@@ -31,7 +31,8 @@ class NewProductViewController: UIViewController, UINavigationControllerDelegate
             expDate: expDatePicker.date,
             quantity: Double(quantityTextField.text ?? "") ?? 0.0,
             image: imageView.image,
-            measureUnit: measureUnits.units[measureUnitPicker.selectedRow(inComponent: 0)]
+            measureUnit: measureUnits.units[measureUnitPicker.selectedRow(inComponent: 0)],
+            containerId: containerId
         )
         
         if !nameTextField.hasText || !quantityTextField.hasText {
@@ -59,6 +60,7 @@ class NewProductViewController: UIViewController, UINavigationControllerDelegate
     // MARK: Properties -
     
     var addNewProduct: (Product) -> Void = { _ in }
+    var containerId: UInt8? = 0
     let measureUnits = MeasureUnitStorage.shared
     
     override func viewDidLoad() {
