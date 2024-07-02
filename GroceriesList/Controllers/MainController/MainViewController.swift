@@ -9,8 +9,8 @@ import UIKit
 
 final class MainViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
-    typealias ContainerCell = TableView.Cells.containerCell
-    typealias ExpiringCell = TableView.Cells.expiringProdsCell
+    private var containerCell = TableView.Cells.ContainerCell
+    private var expiringCell = TableView.Cells.ExpiringProdsCell
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var addContainerButton: UIButton!
@@ -46,15 +46,8 @@ private extension MainViewController {
     
     func configureTableView() {
         
-        tableView.register(
-            ContainerCell.nib,
-            forCellReuseIdentifier: ContainerCell.identifier
-        )
-        
-        tableView.register(
-            ExpiringCell.nib,
-            forCellReuseIdentifier: ExpiringCell.identifier
-        )
+        tableView.register(containerCell)
+        tableView.register(expiringCell)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -94,7 +87,9 @@ private extension MainViewController {
     
     @objc
     func openSettings() {
-        goTo(UIViewController(), with: "Настройки")
+        let settingsVC = SettingsViewController()
+        
+        navigationController?.pushViewController(settingsVC, animated: true)
     }
     
     @objc
@@ -115,11 +110,11 @@ private extension MainViewController {
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        section > 0 ? containers.containers.count : containers.hasExpiringProducts ? 1 : 0
+        section > 0 ? containers.containers.count : 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        containers.hasExpiringProducts ? 2 : 1
+        2
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -130,21 +125,26 @@ extension MainViewController {
         switch indexPath.section {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: ExpiringCell.identifier,
+                    withIdentifier: expiringCell.identifier,
                     for: indexPath
                 ) as? ExpiringProductsTVCell else {
                     return UITableViewCell()
                 }
+                
                 var number: Int = 0
-                containers.containers.forEach({ item in
-//                    number += item.expiredProducts.count
-                    number += item.expiringProducts.count
-                })
+                if containers.containers.isEmpty {
+                    number = -1
+                } else {
+                    containers.containers.forEach({
+                        number += $0.expiringProducts.count
+                    })
+                }
+                
                 cell.getRotts(number)
                 return cell
             default:
                 guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: ContainerCell.identifier,
+                    withIdentifier: containerCell.identifier,
                     for: indexPath
                 ) as? ContainerTVCell else {
                     return UITableViewCell()
@@ -157,6 +157,7 @@ extension MainViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
             case 0:
+                if containers.containers.isEmpty { return }
                 let expiringVC = ExpiringProductsViewController()
                 let expProducts = containers.getExpProds().sorted {
                     $0.expDate <= $1.expDate
@@ -182,23 +183,12 @@ extension MainViewController {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        return .init(
-            actions: [
-                .init(
-                    style: .destructive,
-                    title: "Удалить",
-                    handler: { [weak self] _, _, _ in
-                        guard let self = self else { return }
-                        guard self.containers.containers.count > 1 else {
-                            return
-                        }
-                        self.containers.containers.remove(at: indexPath.row)
-                        self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                        self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-                    }
-                )
-            ]
-        )
+        
+        getSwipeToDeleteAction { [weak self] _, _, _ in
+            guard let self = self else { return }
+            self.containers.containers.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)}
     }
     
 }

@@ -9,8 +9,8 @@ import UIKit
 
 final class SearchViewController: UIViewController {
     
-    typealias SearchCell = TableView.Cells.searchCell
-    typealias EmptyCell = TableView.Cells.nothingFoundCell
+    private var searchCell = TableView.Cells.SearchCell
+    private var emptyCell = TableView.Cells.NothingFoundCell
     
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -62,8 +62,8 @@ private extension SearchViewController {
     }
     
     func configureTableView() {
-        tableView.register(SearchCell.nib, forCellReuseIdentifier: SearchCell.identifier)
-        tableView.register(EmptyCell.nib, forCellReuseIdentifier: EmptyCell.identifier)
+        tableView.register(searchCell)
+        tableView.register(emptyCell)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -85,13 +85,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if filteredProducts.isEmpty {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyCell.identifier, for: indexPath) as? NothingFoundTVCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: emptyCell.identifier, for: indexPath) as? NothingFoundTVCell else {
                 return UITableViewCell()
             }
             cell.configure(with: searchBar.text!)
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCell.identifier, for: indexPath) as? SearchTVCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: searchCell.identifier, for: indexPath) as? SearchTVCell else {
                 return UITableViewCell()
             }
             let product = filteredProducts[indexPath.row]

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A803F0952C3037980061BD27 /* EditSettingsItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A803F0932C3037980061BD27 /* EditSettingsItemsViewController.swift */; };
+		A803F0962C3037980061BD27 /* EditSettingsItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A803F0942C3037980061BD27 /* EditSettingsItemsViewController.xib */; };
 		A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0D22BA9D0750000DAA4 /* AppDelegate.swift */; };
 		A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A82DE0DB2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld */; };
 		A82DE0DF2BA9D0770000DAA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82DE0DE2BA9D0770000DAA4 /* Assets.xcassets */; };
@@ -21,6 +23,12 @@
 		A84A2A352C1D15A000D799E3 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A84A2A332C1D15A000D799E3 /* SearchViewController.xib */; };
 		A84A2A3A2C1D1C4900D799E3 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A2A382C1D1C4900D799E3 /* SearchTVCell.swift */; };
 		A84A2A3B2C1D1C4900D799E3 /* SearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A84A2A392C1D1C4900D799E3 /* SearchTVCell.xib */; };
+		A86568802C258E190038E221 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865687E2C258E190038E221 /* SettingsViewController.swift */; };
+		A86568812C258E190038E221 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A865687F2C258E190038E221 /* SettingsViewController.xib */; };
+		A86568922C25A52C0038E221 /* SettingsMUTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86568902C25A52C0038E221 /* SettingsMUTVCell.swift */; };
+		A86568932C25A52C0038E221 /* SettingsMUTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86568912C25A52C0038E221 /* SettingsMUTVCell.xib */; };
+		A86568962C2710370038E221 /* SettingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86568952C2710370038E221 /* SettingsHeader.swift */; };
+		A86568982C272FB40038E221 /* SettingsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86568972C272FB40038E221 /* SettingsFooter.swift */; };
 		A869F2222C17751A00E55C87 /* ExpiringProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */; };
 		A869F2232C17751A00E55C87 /* ExpiringProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */; };
 		A869F2272C17773300E55C87 /* ExpiredProductTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A869F2252C17773300E55C87 /* ExpiredProductTVCell.swift */; };
@@ -49,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A803F0932C3037980061BD27 /* EditSettingsItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsItemsViewController.swift; sourceTree = "<group>"; };
+		A803F0942C3037980061BD27 /* EditSettingsItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditSettingsItemsViewController.xib; sourceTree = "<group>"; };
 		A82DE0CF2BA9D0750000DAA4 /* GroceriesList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceriesList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82DE0D22BA9D0750000DAA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82DE0DC2BA9D0750000DAA4 /* GroceriesList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroceriesList.xcdatamodel; sourceTree = "<group>"; };
@@ -65,6 +75,12 @@
 		A84A2A332C1D15A000D799E3 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A84A2A382C1D1C4900D799E3 /* SearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		A84A2A392C1D1C4900D799E3 /* SearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTVCell.xib; sourceTree = "<group>"; };
+		A865687E2C258E190038E221 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A865687F2C258E190038E221 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		A86568902C25A52C0038E221 /* SettingsMUTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMUTVCell.swift; sourceTree = "<group>"; };
+		A86568912C25A52C0038E221 /* SettingsMUTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsMUTVCell.xib; sourceTree = "<group>"; };
+		A86568952C2710370038E221 /* SettingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeader.swift; sourceTree = "<group>"; };
+		A86568972C272FB40038E221 /* SettingsFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooter.swift; sourceTree = "<group>"; };
 		A869F2202C17751A00E55C87 /* ExpiringProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringProductsViewController.swift; sourceTree = "<group>"; };
 		A869F2212C17751A00E55C87 /* ExpiringProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiringProductsViewController.xib; sourceTree = "<group>"; };
 		A869F2252C17773300E55C87 /* ExpiredProductTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredProductTVCell.swift; sourceTree = "<group>"; };
@@ -103,6 +119,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A803F0912C30374D0061BD27 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A803F0922C3037560061BD27 /* EditItemsController */,
+				A865687D2C258DD80038E221 /* SettingsController */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A803F0922C3037560061BD27 /* EditItemsController */ = {
+			isa = PBXGroup;
+			children = (
+				A803F0932C3037980061BD27 /* EditSettingsItemsViewController.swift */,
+				A803F0942C3037980061BD27 /* EditSettingsItemsViewController.xib */,
+			);
+			path = EditItemsController;
+			sourceTree = "<group>";
+		};
 		A82DE0C62BA9D0750000DAA4 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +276,43 @@
 			path = SearchTVCell;
 			sourceTree = "<group>";
 		};
+		A865687D2C258DD80038E221 /* SettingsController */ = {
+			isa = PBXGroup;
+			children = (
+				A86568942C270FC70038E221 /* Views */,
+				A86568842C259A560038E221 /* Cells */,
+				A865687E2C258E190038E221 /* SettingsViewController.swift */,
+				A865687F2C258E190038E221 /* SettingsViewController.xib */,
+			);
+			path = SettingsController;
+			sourceTree = "<group>";
+		};
+		A86568842C259A560038E221 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A865688A2C25A4B40038E221 /* SettingsMeasureUnitTVCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A865688A2C25A4B40038E221 /* SettingsMeasureUnitTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				A86568902C25A52C0038E221 /* SettingsMUTVCell.swift */,
+				A86568912C25A52C0038E221 /* SettingsMUTVCell.xib */,
+			);
+			path = SettingsMeasureUnitTVCell;
+			sourceTree = "<group>";
+		};
+		A86568942C270FC70038E221 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A86568952C2710370038E221 /* SettingsHeader.swift */,
+				A86568972C272FB40038E221 /* SettingsFooter.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A869F21F2C1774EA00E55C87 /* ExpiringProductsController */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +391,7 @@
 		A8E5680F2BADCFA30018D78C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A803F0912C30374D0061BD27 /* Settings */,
 				A84A2A312C1D157F00D799E3 /* SearchController */,
 				A869F21F2C1774EA00E55C87 /* ExpiringProductsController */,
 				A8796F8B2C1390A20011991B /* NewProductController */,
@@ -417,7 +489,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DD07E72C04F0010022CC3F /* EditContainerProductsViewController.xib in Resources */,
+				A86568812C258E190038E221 /* SettingsViewController.xib in Resources */,
 				A84A2A3B2C1D1C4900D799E3 /* SearchTVCell.xib in Resources */,
+				A803F0962C3037980061BD27 /* EditSettingsItemsViewController.xib in Resources */,
 				A8D3E72A2C219BD500356A5E /* NothingFoundTVCell.xib in Resources */,
 				A82DE0E22BA9D0770000DAA4 /* LaunchScreen.storyboard in Resources */,
 				A8F899CD2C027B4900EAA771 /* ProductViewController.xib in Resources */,
@@ -425,6 +499,7 @@
 				A8F899C32C00CD8500EAA771 /* DetailItemCollectionViewCell.xib in Resources */,
 				A869F2232C17751A00E55C87 /* ExpiringProductsViewController.xib in Resources */,
 				A8AC05092BB3005C0068C377 /* ExpiringProductsTVCell.xib in Resources */,
+				A86568932C25A52C0038E221 /* SettingsMUTVCell.xib in Resources */,
 				A82DE0F02BA9D1A50000DAA4 /* MainViewController.xib in Resources */,
 				A84A2A352C1D15A000D799E3 /* SearchViewController.xib in Resources */,
 				A8F899C82C00DD2E00EAA771 /* AddNewItemCollectionViewCell.xib in Resources */,
@@ -446,19 +521,24 @@
 				A82DE0F52BA9D1FD0000DAA4 /* StorageModel.swift in Sources */,
 				A8D3E72C2C21BB2C00356A5E /* Cells.swift in Sources */,
 				A8DD07E62C04F0010022CC3F /* EditContainerProductsViewController.swift in Sources */,
+				A86568982C272FB40038E221 /* SettingsFooter.swift in Sources */,
 				A8B538F82BB0A12E00A3E8DA /* Extensions.swift in Sources */,
 				A8796F8E2C1390E20011991B /* NewProductViewController.swift in Sources */,
 				A8F899C22C00CD8500EAA771 /* DetailItemCollectionViewCell.swift in Sources */,
+				A86568922C25A52C0038E221 /* SettingsMUTVCell.swift in Sources */,
 				A8F899C72C00DD2E00EAA771 /* AddNewItemCollectionViewCell.swift in Sources */,
 				A8D3E72E2C21D15600356A5E /* ProductModel.swift in Sources */,
 				A82DE0DD2BA9D0750000DAA4 /* GroceriesList.xcdatamodeld in Sources */,
+				A86568962C2710370038E221 /* SettingsHeader.swift in Sources */,
 				A82DE0F82BA9D22F0000DAA4 /* ContainerViewController.swift in Sources */,
 				A869F2222C17751A00E55C87 /* ExpiringProductsViewController.swift in Sources */,
 				A8F899CC2C027B4900EAA771 /* ProductViewController.swift in Sources */,
 				A82DE0D32BA9D0750000DAA4 /* AppDelegate.swift in Sources */,
 				A8B538FE2BB0B72800A3E8DA /* ContainerTVCell.swift in Sources */,
 				A84A2A342C1D15A000D799E3 /* SearchViewController.swift in Sources */,
+				A86568802C258E190038E221 /* SettingsViewController.swift in Sources */,
 				A84A2A3A2C1D1C4900D799E3 /* SearchTVCell.swift in Sources */,
+				A803F0952C3037980061BD27 /* EditSettingsItemsViewController.swift in Sources */,
 				A8DD07EC2C04F0880022CC3F /* EditContainerProdsTVCell.swift in Sources */,
 				A82DE0F32BA9D1F20000DAA4 /* MainModel.swift in Sources */,
 				A8D3E7292C219BD500356A5E /* NothingFoundTVCell.swift in Sources */,

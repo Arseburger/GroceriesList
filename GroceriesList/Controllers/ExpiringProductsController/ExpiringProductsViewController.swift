@@ -9,7 +9,7 @@ import UIKit
 
 final class ExpiringProductsViewController: UIViewController {
     
-    typealias Cell = TableView.Cells.expiredProdCell
+    private var expiringCell = TableView.Cells.ExpiredProdCell
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -35,7 +35,7 @@ private extension ExpiringProductsViewController {
 
     func configureTableView() {
         
-        tableView.register(Cell.nib, forCellReuseIdentifier: Cell.identifier)
+        tableView.register(expiringCell)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -86,7 +86,7 @@ extension ExpiringProductsViewController: UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "expiredProductCell", for: indexPath) as? ExpiredProductTVCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: expiringCell.identifier, for: indexPath) as? ExpiredProductTVCell else {
             return UITableViewCell()
         }
         var product: Product
