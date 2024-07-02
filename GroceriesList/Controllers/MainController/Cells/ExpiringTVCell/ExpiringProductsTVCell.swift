@@ -14,10 +14,9 @@ final class ExpiringProductsTVCell: UITableViewCell {
     @IBOutlet private weak var infoLabel: UILabel!
     @IBOutlet private weak var bottomView: UIView!
     
-    var expiredProductsCounter: Int = 0
-    
     func getRotts(_ number: Int) {
         productsCountLabel.text = "\(number)"
+        configure(rawState: number)
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
@@ -32,9 +31,34 @@ final class ExpiringProductsTVCell: UITableViewCell {
         productsCountLabel.layer.cornerRadius = productsCountLabel.frame.height * 0.5
         productsCountLabel.setBorder(width: 1.0, color: .red)
         productsCountLabel.layer.backgroundColor = UIColor.white.cgColor
-        infoLabel.textColor = .red
-        infoLabel.text = "Продукты, которые испортятся в течение 3-х дней!"
         selectionStyle = .none
     }
     
+    private func configure(rawState: Int) {
+        let state = CellStates(rawValue: rawState < 1 ? rawState : 1)
+        rightArrow.isHidden = rawState < 0
+        productsCountLabel.isHidden = rawState < 0
+        infoLabel.font = .systemFont(ofSize: 13, weight: rawState < 0 ? .bold : .regular)
+        switch state {
+            case .noExpProds:
+                infoLabel.text = "Нет продуктов с истекающим сроком годности!"
+                infoLabel.textColor = .black
+            case .hasExpProds:
+                infoLabel.text = "Продукты, которые испортятся в течение 3-х дней!"
+                infoLabel.textColor = .red
+            case .noContainers:
+                infoLabel.textColor = .black
+                
+                infoLabel.text = "Нажмите на кнопку внизу, чтобы добавить хранилище!"
+            case .none:
+                break
+        }
+    }
+    
+}
+
+enum CellStates: Int {
+    case noContainers = -1
+    case noExpProds = 0
+    case hasExpProds = 1
 }

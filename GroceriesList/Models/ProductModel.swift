@@ -86,14 +86,14 @@ extension Product {
         
         let date: (day: Int, month: Int, year: Int) = (
             Int.random(in: 1...28),
-            6,//Int.random(in: 1...12),
+            7,//Int.random(in: 1...12),
             2024// Int.random(in: 2022...2027))
         )
         
         let image = UIImage.init(systemName: "die.face.\(Int.random(in: 1...6))")
         
         let product: Product = .init(
-            name: name,
+            name: name.uppercased(),
             expDate: .shortDate(day: date.day, month: date.month, year: date.year),
             quantity: Double.random(in: 0.1...3.0),
             image: image,

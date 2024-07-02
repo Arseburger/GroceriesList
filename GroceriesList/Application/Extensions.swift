@@ -78,9 +78,16 @@ extension UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func getSwipeToDeleteAction(_ completion: @escaping UIContextualAction.Handler) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Удалить", handler: completion)
-        return action
+    func getSwipeToDeleteAction(_ completion: @escaping UIContextualAction.Handler) -> UISwipeActionsConfiguration {
+        .init(
+            actions: [
+                .init(
+                    style: .destructive,
+                    title: "Удалить",
+                    handler: completion
+                )
+            ]
+        )
     }
     
 }
@@ -163,5 +170,11 @@ extension UIView {
 extension Date {
     static func shortDate(day: Int, month: Int, year: Int) -> Date {
         DateComponents.init(calendar: .init(identifier: .gregorian), timeZone: .init(abbreviation: "MSK"), year: year, month: month, day: day).date ?? Date.now
+    }
+}
+
+extension UITableView {
+    func register(_ cell: TableView.Cells) {
+        register(cell.nib, forCellReuseIdentifier: cell.identifier)
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 final class EditContainerProductsViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
-    typealias Cell = TableView.Cells.editContainerCell
+    private var editCell = TableView.Cells.EditContainerCell
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -50,7 +50,7 @@ private extension EditContainerProductsViewController {
     }
     
     func configureTableView() {
-        tableView.register(Cell.nib, forCellReuseIdentifier: Cell.identifier)
+        tableView.register(editCell)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -74,7 +74,7 @@ extension EditContainerProductsViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifier, for: indexPath) as? EditContainerProdsTVCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: editCell.identifier, for: indexPath) as? EditContainerProdsTVCell else {
                 return UITableViewCell()
             }
             
@@ -93,14 +93,10 @@ extension EditContainerProductsViewController {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        return UISwipeActionsConfiguration(
-            actions: [
-                getSwipeToDeleteAction { [weak self] _, _, _ in
-                    guard let self = self else { return }
-                    self.container.products.remove(at: indexPath.row)
-                    self.tableView.deleteRows(at: [indexPath], with: .fade)
-                }
-            ]
-        )
+        getSwipeToDeleteAction { [weak self] _, _, _ in
+            guard let self = self else { return }
+            self.container.products.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }

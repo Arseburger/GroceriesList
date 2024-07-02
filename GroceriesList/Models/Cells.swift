@@ -6,33 +6,51 @@
 //
 
 import UIKit.UINib
-
 struct TableView {
     struct Cells {
-        struct searchCell {
-            static let identifier = "searchCell"
-            static let nib = UINib(nibName: "SearchTVCell", bundle: .main)
-        }
-        struct expiredProdCell {
-            static let identifier = "expiredProductCell"
-            static let nib = UINib(nibName: "ExpiredProductTVCell", bundle: .main)
-        }
-        struct editContainerCell {
-            static let identifier = "editProductsCell"
-            static let nib = UINib(nibName: "EditContainerProdsTVCell", bundle: .main)
-        }
-        struct expiringProdsCell {
-            static let identifier = "expiredTVCell"
-            static let nib = UINib(nibName: "ExpiringProductsTVCell", bundle: .main)
-        }
-        struct containerCell {
-            static let identifier = "containerTVCell"
-            static let nib = UINib(nibName: "ContainerTVCell", bundle: .main)
-        }
-        struct nothingFoundCell {
-            static let identifier = "nothingFoundCell"
-            static let nib = UINib(nibName: "NothingFoundTVCell", bundle: .main)
-        }
+        let identifier: String
+        let nib: UINib
+        
+        static let SearchCell = Cells(
+            identifier: "searchCell",
+            nib: UINib(nibName: "SearchTVCell", bundle: .main)
+        )
+        static let ExpiredProdCell = Cells(
+            identifier: "expiredProductCell",
+            nib: UINib(nibName: "ExpiredProductTVCell", bundle: .main)
+        )
+        static let EditContainerCell = Cells(
+            identifier: "editProductsCell",
+            nib: UINib(nibName: "EditContainerProdsTVCell", bundle: .main)
+        )
+        static let ExpiringProdsCell = Cells(
+            identifier: "expiredTVCell",
+            nib: UINib(nibName: "ExpiringProductsTVCell", bundle: .main)
+        )
+        static let ContainerCell = Cells(
+            identifier: "containerTVCell",
+            nib: UINib(nibName: "ContainerTVCell", bundle: .main)
+        )
+        static let NothingFoundCell = Cells(
+            identifier: "nothingFoundCell",
+            nib: UINib(nibName: "NothingFoundTVCell", bundle: .main)
+        )
+        static let SettingsMeasureUnitCell = Cells(
+            identifier: "settingsMUTVCell",
+            nib: UINib(nibName: "SettingsMUTVCell", bundle: .main)
+        )
+        
+///  searchCell – SearchTVCell
+///  expiredProdCell – ExpiredProductTVCell
+///  editContainerCell – EditContainerProdsTVCell
+///  expiringProdsCell – ExpiringProductsTVCell
+///  containerCell – ContainerTVCell
+///  nothingFoundCell – NothingFoundTVCell
+///  settingsMeasureUnitCell – SettingsMUTVCell
+    }
+    
+    func register(_ cell: TableView.Cells, in tableView: UITableView) {
+        tableView.register(cell.nib, forCellReuseIdentifier: cell.identifier)
     }
 }
 
