@@ -125,9 +125,6 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        filteredProducts = container.products.filter({
-            $0.name.starts(with: searchBar.text!.lowercased())
-        })
         hasSearched = true
         tableView.reloadData()
         searchBar.resignFirstResponder()
@@ -146,7 +143,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         hasSearched = true
         filteredProducts = container.products.filter({
-            $0.name.starts(with: searchText.lowercased())
+            $0.name.lowercased().starts(with: searchText.lowercased())
         })
         tableView.reloadData()
     }

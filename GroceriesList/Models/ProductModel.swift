@@ -39,7 +39,6 @@ struct Product {
         var copy = self
         copy.containerId = id
         return copy
-//        return .init(name: self.name, expDate: self.expDate, quantity: self.quantity, image: self.image, measureUnit: self.measureUnit, containerId: id)
     }
     
 }
@@ -93,7 +92,7 @@ extension Product {
         let image = UIImage.init(systemName: "die.face.\(Int.random(in: 1...6))")
         
         let product: Product = .init(
-            name: name.uppercased(),
+            name: name.capitalized,
             expDate: .shortDate(day: date.day, month: date.month, year: date.year),
             quantity: Double.random(in: 0.1...3.0),
             image: image,
