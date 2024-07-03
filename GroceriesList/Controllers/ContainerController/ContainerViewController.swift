@@ -8,9 +8,9 @@
 import UIKit
 
 final class ContainerViewController: UIViewController {
-
-    typealias ItemCell = CollectionView.Cells.detailIemCell
-    typealias AddItemCell = CollectionView.Cells.newItemCell
+    
+    private var newItemCell = CollectionView.Cells.newItemCell
+    private var detailItemCell = CollectionView.Cells.detailItemCell
     
     var container: Storage = .defaultContainer(false)
     
@@ -97,15 +97,9 @@ private extension ContainerViewController {
     
     func setupCollectionView() {
         
-        collectionView.register(
-            ItemCell.nib,
-            forCellWithReuseIdentifier: ItemCell.identifier
-        )
-        
-        collectionView.register(
-            AddItemCell.nib,
-            forCellWithReuseIdentifier: AddItemCell.identifier
-        )
+        [newItemCell, detailItemCell].forEach {
+            collectionView.register($0)
+        }
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -152,14 +146,14 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.item < container.products.count {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.identifier, for: indexPath) as? DetailItemCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailItemCell.identifier, for: indexPath) as? DetailItemCollectionViewCell else {
                 return UICollectionViewCell()
             }
             let item = container.sortedProducts[indexPath.item]
             cell.configure(with: item)
             return cell
         } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddItemCell.identifier, for: indexPath) as? AddNewItemCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newItemCell.identifier, for: indexPath) as? AddNewItemCollectionViewCell else {
                 return UICollectionViewCell()
             }
             return cell

@@ -178,3 +178,9 @@ extension UITableView {
         register(cell.nib, forCellReuseIdentifier: cell.identifier)
     }
 }
+
+extension UICollectionView {
+    func register(_ cell: CollectionView.Cells) {
+        register(cell.nib, forCellWithReuseIdentifier: cell.identifier)
+    }
+}

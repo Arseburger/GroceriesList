@@ -48,21 +48,22 @@ struct TableView {
 ///  nothingFoundCell – NothingFoundTVCell
 ///  settingsMeasureUnitCell – SettingsMUTVCell
     }
-    
-    func register(_ cell: TableView.Cells, in tableView: UITableView) {
-        tableView.register(cell.nib, forCellReuseIdentifier: cell.identifier)
-    }
 }
 
 struct CollectionView {
     struct Cells {
-        struct newItemCell {
-            static let identifier = "newProductCell"
-            static let nib = UINib(nibName: "AddNewItemCollectionViewCell", bundle: .main)
-        }
-        struct detailIemCell {
-            static let identifier = "productCell"
-            static let nib = UINib(nibName: "DetailItemCollectionViewCell", bundle: .main)
-        }
+        
+        let identifier: String
+        let nib: UINib
+        
+        static let newItemCell = Cells(
+            identifier: "newProductCell",
+            nib: UINib(nibName: "AddNewItemCollectionViewCell", bundle: .main)
+        )
+        
+        static let detailItemCell = Cells(
+            identifier: "productCell",
+            nib: UINib(nibName: "DetailItemCollectionViewCell", bundle: .main)
+        )
     }
 }
