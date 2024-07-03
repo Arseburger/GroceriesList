@@ -20,7 +20,7 @@ struct Product {
     var containerId: UInt8? = 10
     var color: UIColor
     var qtyStr: String {
-        NSString(format:"%.3f", self.quantity).standardizingPath
+        NSString(format:"%.2f", self.quantity).standardizingPath
     }
     
     init(name: String, expDate: Date, quantity: Double, image: UIImage?, measureUnit: MeasureUnit, containerId: UInt8? = 0) {

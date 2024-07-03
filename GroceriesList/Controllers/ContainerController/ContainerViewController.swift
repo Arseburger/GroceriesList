@@ -167,6 +167,14 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
             let item = container.sortedProducts[index]
             let productVC = ProductViewController()
             productVC.setProduct(product: item)
+            
+            productVC.didUpdateProduct = { [weak self] prod in
+                self?.container.products[index] = prod
+                self?.container.products.sort(by: {
+                    $0.expDate > $1.expDate
+                })
+                self?.collectionView.reloadData()
+            }
             navigationController?.pushViewController(productVC, animated: true)
         } else {
             let vc = NewProductViewController()

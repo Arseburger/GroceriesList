@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4x-Ba-nQg">
-                    <rect key="frame" x="16" y="802" width="382" height="60"/>
+                    <rect key="frame" x="16" y="794" width="382" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="xVn-bN-iY7"/>
                     </constraints>
@@ -33,7 +33,7 @@
                     </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-DS-93f">
-                    <rect key="frame" x="0.0" y="48" width="414" height="746"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="738"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Uj6-Z8-5lL">
                         <size key="itemSize" width="128" height="128"/>
@@ -46,7 +46,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="O4x-Ba-nQg" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="2Mg-58-Y7V"/>
+                <constraint firstItem="O4x-Ba-nQg" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-8" id="2Mg-58-Y7V"/>
                 <constraint firstItem="Wpa-DS-93f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DHr-K0-gnc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O4x-Ba-nQg" secondAttribute="trailing" constant="16" id="EhB-q8-SrS"/>
                 <constraint firstItem="O4x-Ba-nQg" firstAttribute="top" secondItem="Wpa-DS-93f" secondAttribute="bottom" constant="8" id="G7n-bv-MtM"/>

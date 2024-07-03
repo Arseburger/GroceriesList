@@ -10,8 +10,20 @@ import UIKit
 public typealias MeasureUnit = (full: String?, short: String?)
 
 class MeasureUnitStorage {
+    
     static let shared = MeasureUnitStorage()
     var units: [MeasureUnit] = [("Штук","шт"), ("Грамм","гр"), ("куска", "кус"), ("литра", "л")]
+    
+    func getIdOf(_ item: MeasureUnit) -> Int? {
+        guard self.units.contains(where: {
+            $0.full == item.full
+        }) else { return nil }
+        
+        let id = units.firstIndex(where: {
+            $0.full == item.full
+        })
+        return id
+    }
 }
 
 public let threeDays = 3.0 * 86440

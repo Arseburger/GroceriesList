@@ -47,9 +47,6 @@ private extension SearchViewController {
         setupNavigationBar()
         setupSearchBar()
         configureTableView()
-        
-//        let dismissKeyboardGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        view.addGestureRecognizer(dismissKeyboardGestureRecognizer)
     }
     
     func setupSearchBar() {
