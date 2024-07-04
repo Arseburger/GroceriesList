@@ -15,6 +15,9 @@ final class SearchViewController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
     
+    private var hasSearched = false
+    
+    var filteredProducts: [Product] = []
     var container: Storage = .defaultContainer(false) {
         didSet {
             container.sortedProducts = container.products.sorted {
@@ -22,10 +25,6 @@ final class SearchViewController: UIViewController {
             }
         }
     }
-    
-    private var hasSearched = false
-    
-    var filteredProducts: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +38,7 @@ final class SearchViewController: UIViewController {
 }
 
 private extension SearchViewController {
+    
     func setupNavigationBar() {
         navigationItem.title = "Поиск"
     }
@@ -47,13 +47,10 @@ private extension SearchViewController {
         setupNavigationBar()
         setupSearchBar()
         configureTableView()
+        setupNotifications()
     }
     
     func setupSearchBar() {
-        searchBar.searchTextField.tintColor = .black
-        searchBar.searchTextField.textColor = .black
-        searchBar.tintColor = .black
-        searchBar.barTintColor = .mainColor
         searchBar.placeholder = "Начните вводить название продукта"
         searchBar.delegate = self
     }
@@ -68,13 +65,38 @@ private extension SearchViewController {
         tableView.reloadData()
     }
     
-    @objc
-    func dismissKeyboard() {
-        view.endEditing(true)
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    @objc
+    func keyboardWillAppear(notification: NSNotification?) {
+        guard let keyboardFrame = notification?.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        let keyboardHeight = keyboardFrame.cgRectValue.height - view.safeAreaInsets.bottom
+        tableView.contentInset = .init(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        tableView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        
+        UIView.animate(withDuration: 0, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        })
+    }
+    
+    @objc
+    func keyboardWillDisappear(notification: NSNotification?) {
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
+        UIView.animate(withDuration: 0, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        })
+    }
+    
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         !hasSearched ? 0 : filteredProducts.isEmpty ? 1 : filteredProducts.count
     }
@@ -121,7 +143,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         hasSearched = true
         tableView.reloadData()
         searchBar.resignFirstResponder()

@@ -12,18 +12,36 @@ final class ContainerViewController: UIViewController {
     private var newItemCell = CollectionView.Cells.newItemCell
     private var detailItemCell = CollectionView.Cells.detailItemCell
     
-    var container: Storage = .defaultContainer(false)
-    
-    var updateContainer: (Storage) -> Void = { _ in }
-    
     private enum Constants {
         static let itemsPerRow: Int = 2
         static let hPadding: CGFloat = 8.0
         static let vPadding: CGFloat = 8.0
     }
     
+    var container: Storage = .defaultContainer(false)
+    var updateContainer: (Storage) -> Void = { _ in }
+    
+    private var inEditMode: Bool = false
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var addItemsButton: UIButton!
+    @IBOutlet private weak var titleTextView: UITextView!
+    @IBOutlet private weak var saveChangesButton: UIButton!
+    
+    @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
+    
+    @IBAction private func saveChangesButtonPressed(_ sender: Any) {
+        if !titleTextView.hasText {
+            titleTextView.text = container.name
+            titleTextView.setBorder(color: .mainColor)
+            return
+        }
+        if let title = titleTextView.text {
+            container.name = title
+            navigationItem.title = container.name
+            toggleEditing()
+        }
+    }
     
     @IBAction private func editProductsButtonPressed(_ sender: Any) {
         let editProductsVC = EditContainerProductsViewController()
@@ -49,10 +67,18 @@ final class ContainerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationItem.rightBarButtonItem = .init(
-            image: UIImage(systemName: "arrow.up.arrow.down"),
-            menu: UIMenu(title: "", children: configureActions())
-        )
+        navigationItem.rightBarButtonItems = [
+            .init(
+                image: UIImage(systemName: "arrow.up.arrow.down"),
+                menu: UIMenu(title: "", children: configureActions())
+            ),
+            .init(
+                image: .init(systemName: "pencil"),
+                style: .plain,
+                target: self,
+                action: #selector(toggleEditing)
+            )
+        ]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,6 +89,18 @@ final class ContainerViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         container.sortedProducts = container.products
+    }
+    
+    @objc
+    private func toggleEditing() {
+        inEditMode.toggle()
+        collectionViewTopConstraint.constant = inEditMode ? 52 : 4
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+        if !inEditMode {
+            view.endEditing(true)
+        }
     }
     
 }
@@ -105,7 +143,7 @@ private extension ContainerViewController {
         collectionView.dataSource = self
         let hInset = Constants.hPadding
         let vInset = Constants.vPadding
-        collectionView.contentInset = .init(top: vInset, left: hInset, bottom: vInset, right: hInset)
+        collectionView.contentInset = .init(top: vInset * 0.5, left: hInset, bottom: vInset, right: hInset)
         collectionView.isScrollEnabled = true
         collectionView.reloadData()
     }
@@ -115,6 +153,17 @@ private extension ContainerViewController {
         addItemsButton.setTitle("Изменить остатки", for: .normal)
         addItemsButton.setTitleColor(.white, for: .normal)
         addItemsButton.layer.cornerRadius = 12
+        
+        titleTextView.text = container.name
+        titleTextView.layer.cornerRadius = 8
+        titleTextView.setBorder(color: .mainColor)
+        titleTextView.textAlignment = .left
+        titleTextView.delegate = self
+        
+        saveChangesButton.tintColor = .mainColor
+        saveChangesButton.backgroundColor = .white
+        saveChangesButton.layer.cornerRadius = 8
+        
         navigationItem.title = container.name
         navigationItem.backButtonTitle = "Назад"
     }
@@ -193,4 +242,10 @@ extension ContainerViewController: UICollectionViewDataSource, UICollectionViewD
         }
     }
     
+}
+
+extension ContainerViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        textView.setBorder(color: textView.hasText ? .mainColor : .red)
+    }
 }

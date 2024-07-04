@@ -12,6 +12,9 @@
             <connections>
                 <outlet property="addItemsButton" destination="O4x-Ba-nQg" id="Tnw-6H-veg"/>
                 <outlet property="collectionView" destination="Wpa-DS-93f" id="JSG-zO-8Ua"/>
+                <outlet property="collectionViewTopConstraint" destination="wQV-OQ-cKL" id="bFB-a9-kNM"/>
+                <outlet property="saveChangesButton" destination="gCk-Fg-iub" id="3lf-dD-DTa"/>
+                <outlet property="titleTextView" destination="TRZ-cB-13i" id="2PB-MR-bwR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,22 +45,54 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TRZ-cB-13i">
+                    <rect key="frame" x="8" y="8" width="358" height="36"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="BFr-TG-MKa"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCk-Fg-iub">
+                    <rect key="frame" x="370" y="8" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="7y7-Xl-QED"/>
+                        <constraint firstAttribute="width" secondItem="gCk-Fg-iub" secondAttribute="height" multiplier="1:1" id="MyO-mZ-wjB"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="checkmark.circle.fill" catalog="system"/>
+                    <connections>
+                        <action selector="saveChangesButtonPressed:" destination="-1" eventType="touchUpInside" id="a2q-e0-IUx"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="O4x-Ba-nQg" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-8" id="2Mg-58-Y7V"/>
+                <constraint firstItem="Wpa-DS-93f" firstAttribute="top" secondItem="TRZ-cB-13i" secondAttribute="bottom" constant="4" id="C5V-S6-CCU"/>
                 <constraint firstItem="Wpa-DS-93f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DHr-K0-gnc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O4x-Ba-nQg" secondAttribute="trailing" constant="16" id="EhB-q8-SrS"/>
                 <constraint firstItem="O4x-Ba-nQg" firstAttribute="top" secondItem="Wpa-DS-93f" secondAttribute="bottom" constant="8" id="G7n-bv-MtM"/>
+                <constraint firstItem="gCk-Fg-iub" firstAttribute="centerY" secondItem="TRZ-cB-13i" secondAttribute="centerY" id="JLy-Tf-kPK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Wpa-DS-93f" secondAttribute="trailing" id="cTz-lW-dIF"/>
+                <constraint firstItem="TRZ-cB-13i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="dze-kd-FjF"/>
+                <constraint firstItem="gCk-Fg-iub" firstAttribute="leading" secondItem="TRZ-cB-13i" secondAttribute="trailing" constant="4" id="m0O-FW-bsj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gCk-Fg-iub" secondAttribute="trailing" constant="8" id="toG-Q3-Tc9"/>
                 <constraint firstItem="O4x-Ba-nQg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="uFh-en-JKa"/>
                 <constraint firstItem="Wpa-DS-93f" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="wQV-OQ-cKL"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="125"/>
+            <point key="canvasLocation" x="236.95652173913047" y="70.982142857142847"/>
         </view>
     </objects>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
