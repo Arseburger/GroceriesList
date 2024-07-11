@@ -85,14 +85,6 @@ struct Storage {
 
 extension Array where Element == Storage {
     func getContainer(by id: UInt8) -> Storage? {
-//        var container: Storage?
-//        for item in self {
-//            if item.id == id {
-//                container = item
-//                break
-//            }
-//        }
-//        return container
         return self.first {
             $0.id == id
         }

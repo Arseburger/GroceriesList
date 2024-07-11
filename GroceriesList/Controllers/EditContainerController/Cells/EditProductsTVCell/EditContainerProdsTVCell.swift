@@ -18,7 +18,6 @@ class EditContainerProdsTVCell: UITableViewCell {
     
     @IBAction private func editButtonPressed(_ sender: Any) {
         editItem(UIViewController())
-        print("edit")
     }
     
     var product: Product = .randomProduct() {
@@ -51,6 +50,10 @@ class EditContainerProdsTVCell: UITableViewCell {
         editButton.tintColor = .systemGray4
         productImageView.tintColor = .red
         bottomView.layer.cornerRadius = bottomView.frame.height * 0.1
+    }
+    
+    override func setBorder(width: CGFloat = 1.0, color: UIColor) {
+        bottomView.setBorder(color: color)
     }
     
     func configure() {

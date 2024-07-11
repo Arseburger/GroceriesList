@@ -83,6 +83,8 @@ final class ProductViewController: UIViewController {
         datePicker.setDate(product.expDate, animated: true)
         datePicker.isUserInteractionEnabled = false
         
+        imageView.contentMode = .scaleAspectFill
+        
         setupNotifications()
     }
     

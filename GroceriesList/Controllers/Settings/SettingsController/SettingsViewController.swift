@@ -125,11 +125,14 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        getSwipeToDeleteAction { [weak self] _, _,_ in
-            self?.MUStorage.units.remove(at: indexPath.row)
-            self?.tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        
+        .init(
+            actions: [
+                getSwipeToDeleteAction { [weak self] _, _,_ in
+                    self?.MUStorage.units.remove(at: indexPath.row)
+                    self?.tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+            ]
+        )
     }
     
 }

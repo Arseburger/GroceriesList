@@ -10,7 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditContainerProductsViewController" customModule="GroceriesList" customModuleProvider="target">
             <connections>
+                <outlet property="quantityStepper" destination="hXQ-Wz-eXk" id="L9X-wL-qdO"/>
+                <outlet property="quantityTextView" destination="Asa-AO-1qL" id="WvR-3s-WYE"/>
+                <outlet property="stackBottomConstraint" destination="pXu-kZ-RrQ" id="yXN-7A-VCS"/>
                 <outlet property="tableView" destination="Ycl-Gl-ig3" id="NhR-UN-Tr1"/>
+                <outlet property="updateQuantityButton" destination="1c9-1t-zkX" id="XAN-TQ-CZP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,22 +24,57 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ycl-Gl-ig3">
-                    <rect key="frame" x="0.0" y="48" width="414" height="806"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="748"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="39c-gQ-re0">
+                    <rect key="frame" x="16" y="804" width="382" height="50"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Asa-AO-1qL">
+                            <rect key="frame" x="0.0" y="0.0" width="94" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="hXQ-Wz-eXk">
+                            <rect key="frame" x="144" y="9" width="94" height="32"/>
+                        </stepper>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c9-1t-zkX">
+                            <rect key="frame" x="288" y="0.0" width="94" height="50"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <connections>
+                                <action selector="updateQuantityButtonPressed:" destination="-1" eventType="touchUpInside" id="vmV-69-tl4"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="1c9-1t-zkX" firstAttribute="width" secondItem="Asa-AO-1qL" secondAttribute="width" id="bl6-ef-K0e"/>
+                        <constraint firstItem="1c9-1t-zkX" firstAttribute="height" secondItem="Asa-AO-1qL" secondAttribute="height" id="mDM-xI-HsS"/>
+                        <constraint firstItem="Asa-AO-1qL" firstAttribute="height" secondItem="39c-gQ-re0" secondAttribute="height" id="xL4-Jk-VKC"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="39c-gQ-re0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Cb5-e7-A6H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="39c-gQ-re0" secondAttribute="trailing" constant="16" id="FRa-hc-LOh"/>
                 <constraint firstItem="Ycl-Gl-ig3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Q74-vr-afQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ycl-Gl-ig3" secondAttribute="trailing" id="WiM-oM-KMw"/>
                 <constraint firstItem="Ycl-Gl-ig3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="fhd-T6-fpo"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ycl-Gl-ig3" secondAttribute="bottom" constant="8" id="syR-2f-fKp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="39c-gQ-re0" secondAttribute="bottom" constant="8" id="pXu-kZ-RrQ"/>
+                <constraint firstItem="Ycl-Gl-ig3" firstAttribute="bottom" secondItem="39c-gQ-re0" secondAttribute="top" constant="-8" id="syR-2f-fKp"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="117"/>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

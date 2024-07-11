@@ -43,7 +43,14 @@ final class ContainerTVCell: UITableViewCell {
         bottomLabel.textColor = item.expiredProducts.isEmpty
             ? .black
             : .red
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
+        imageLogo.image = UIImage(named: "fridge")
+        topLabel.text = ""
+        bottomLabel.text = ""
     }
     
 }

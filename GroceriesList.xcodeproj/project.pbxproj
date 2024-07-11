@@ -137,29 +137,6 @@
 			path = EditItemsController;
 			sourceTree = "<group>";
 		};
-		A803F0972C357DE00061BD27 /* Editing */ = {
-			isa = PBXGroup;
-			children = (
-				A803F0992C357E0C0061BD27 /* container */,
-				A803F0982C357E020061BD27 /* item */,
-			);
-			path = Editing;
-			sourceTree = "<group>";
-		};
-		A803F0982C357E020061BD27 /* item */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = item;
-			sourceTree = "<group>";
-		};
-		A803F0992C357E0C0061BD27 /* container */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = container;
-			sourceTree = "<group>";
-		};
 		A82DE0C62BA9D0750000DAA4 = {
 			isa = PBXGroup;
 			children = (
@@ -414,7 +391,6 @@
 		A8E5680F2BADCFA30018D78C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A803F0972C357DE00061BD27 /* Editing */,
 				A803F0912C30374D0061BD27 /* Settings */,
 				A84A2A312C1D157F00D799E3 /* SearchController */,
 				A869F21F2C1774EA00E55C87 /* ExpiringProductsController */,

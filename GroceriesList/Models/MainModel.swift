@@ -28,7 +28,7 @@ class MeasureUnitStorage {
 
 public let threeDays = 3.0 * 86440
 
-struct ContainerList {
+class ContainerList {
     
     static var defaultItem = ContainerList(items: Array.init(repeating: .defaultContainer(false), count: 5))
     
@@ -44,6 +44,20 @@ struct ContainerList {
     
     init(items: [Storage]) {
         self.containers = items
+    }
+    
+    static func getEmpty() -> ContainerList {
+        return .init(
+            items: [
+                .init(
+                    name: "Хранилище",
+                    image: .init(
+                        named: "fridge"
+                    ),
+                    products: []
+                )
+            ]
+        )
     }
     
     func getExpProds() -> [Product] {

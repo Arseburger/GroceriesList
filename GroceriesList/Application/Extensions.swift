@@ -78,15 +78,19 @@ extension UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func getSwipeToDeleteAction(_ completion: @escaping UIContextualAction.Handler) -> UISwipeActionsConfiguration {
+    func getSwipeToDeleteAction(_ completion: @escaping UIContextualAction.Handler) -> UIContextualAction {
         .init(
-            actions: [
-                .init(
-                    style: .destructive,
-                    title: "Удалить",
-                    handler: completion
-                )
-            ]
+            style: .destructive,
+            title: "Удалить",
+            handler: completion
+        )
+    }
+    
+    func getSwipeToEditAction(_ completion: @escaping UIContextualAction.Handler) -> UIContextualAction {
+        .init(
+            style: .normal,
+            title: "Изменить",
+            handler: completion
         )
     }
     
@@ -154,6 +158,8 @@ extension String {
 }
 
 extension UIView {
+    
+    @objc
     func setBorder(width: CGFloat = 1.0, color: UIColor) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
@@ -176,6 +182,13 @@ extension Date {
 extension UITableView {
     func register(_ cell: TableView.Cells) {
         register(cell.nib, forCellReuseIdentifier: cell.identifier)
+    }
+    
+    func scrollToBottom() {
+        let lastSection: Int = numberOfSections - 1
+        let lastRow: Int = numberOfRows(inSection: lastSection) - 1
+        let lastIndex = IndexPath(row: lastRow, section: lastSection)
+        scrollToRow(at: lastIndex, at: .bottom, animated: true)
     }
 }
 
